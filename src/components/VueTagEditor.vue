@@ -28,6 +28,9 @@ export default {
       tag: ''
     }
   },
+  mounted(){
+    this.$eventHub.$on('tag-click', this._tagClick)
+  },
   methods: {
     inputTag(){
       if (this._enableAdd(this.tag)) {
@@ -38,6 +41,9 @@ export default {
     _enableAdd(tag){
       return (this.tags.indexOf(tag) == -1) && tag != undefined || ''
     },
+    _tagClick(tag){
+      this.$emit('tag-click-handler', tag)
+    }
   }
 }
 </script>

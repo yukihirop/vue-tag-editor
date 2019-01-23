@@ -1,6 +1,6 @@
 <template>
   <span>
-    <tag-editor :tags='tags' :type="'link'"></tag-editor>
+    <tag-editor :tags='tags' :type="'link'" @tag-click-handler='tagClick'></tag-editor>
   </span>
 </template>
 
@@ -10,9 +10,6 @@ export default {
     return {
       tags: ['javascript', 'ruby']
     }
-  },
-  mounted(){
-    this.$eventHub.$on('tag-click', this.tagClick)
   },
   methods: {
     tagClick(tag){
