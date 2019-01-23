@@ -1,6 +1,6 @@
 <template>
   <span>
-    <tags :tags='tags'></tags>
+    <tags :tags='tags' :type='type'></tags>
     <input placeholder="Add tags..." v-model="tag" @keyup.enter="inputTag"></input>
   </span>
 </template>
@@ -14,6 +14,10 @@ export default {
     tags:{
       type: Array,
       default: []
+    },
+    type: {
+      type: String,
+      default: 'label'
     }
   },
   components:{
@@ -28,13 +32,12 @@ export default {
     inputTag(){
       if (this._enableAdd(this.tag)) {
         this.tags.push(this.tag)
-      } else {
-        this.tag = null
       }
+      this.tag = null
     },
     _enableAdd(tag){
       return (this.tags.indexOf(tag) == -1) && tag != undefined || ''
-    }
+    },
   }
 }
 </script>
