@@ -23,7 +23,10 @@ export default {
       default: ''
     },
     eventHub: {
-      type: Object
+      type: Object,
+      default(){
+        return null
+      }
     }
   },
   methods: {

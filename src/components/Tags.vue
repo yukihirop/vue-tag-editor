@@ -1,6 +1,9 @@
 <template>
   <span>
-    <span v-for="(tag, index) in tags">
+    <span
+      v-for="(tag, index) in tags"
+      :key="tag.id"
+    >
       <tag-label
         v-if="isLabel"
         :tagname="tag"
@@ -29,14 +32,19 @@ export default {
   props: {
     tags: {
       type: Array,
-      default: []
+      default() {
+        return []
+      }
     },
     type: {
       type: String,
       default: ''
     },
     eventHub: {
-      type: Object
+      type: Object,
+      default(){
+        return null
+      }
     }
   },
   computed:{

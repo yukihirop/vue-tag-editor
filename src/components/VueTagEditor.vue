@@ -9,7 +9,7 @@
       v-model="tag"
       placeholder="Add tags..."
       @keyup.enter="inputTag"
-    ></input>
+    >
   </span>
 </template>
 
@@ -25,7 +25,9 @@ export default {
   props: {
     tags:{
       type: Array,
-      default: []
+      default(){
+        return []
+      }
     },
     type: {
       type: String,
