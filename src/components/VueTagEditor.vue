@@ -54,7 +54,7 @@ export default {
       return (this.tags.indexOf(tag) == -1) && tag != undefined || ''
     },
     _tagClick(tag){
-      this.$emit('tag-click-handler', tag)
+      this.$emit('handler-after-click-tag', tag)
     }
   }
 }
