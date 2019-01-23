@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     emitDeleteTag() {
-      this.$emit('delete-tag', this.$refs.text)
+      this.$emit('delete-tag')
     }
   }
 }

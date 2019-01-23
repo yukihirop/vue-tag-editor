@@ -10,6 +10,14 @@ export default {
     return {
       tags: ['javascript', 'ruby']
     }
+  },
+  mounted(){
+    this.$eventHub.$on('tag-click', this.tagClick)
+  },
+  methods: {
+    tagClick(tag){
+      console.log(tag)
+    }
   }
 }
 </script>
