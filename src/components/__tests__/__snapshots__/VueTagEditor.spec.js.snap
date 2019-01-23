@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VueTagEditor renders correctly (snapshots) 1`] = `
+<span>
+  <tags-stub
+    eventhub="[object Object]"
+    tags="javascript,ruby"
+    type="label"
+  />
+   
+  <input
+    placeholder="Add tags..."
+  />
+</span>
+`;
