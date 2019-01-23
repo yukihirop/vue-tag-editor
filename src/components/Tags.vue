@@ -20,7 +20,7 @@ export default {
     },
     type: {
       type: String,
-      default: 'label'
+      default: ''
     },
     eventHub: {
       type: Object
