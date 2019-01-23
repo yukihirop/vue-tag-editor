@@ -1,6 +1,6 @@
 <template>
   <span>
-    <tag-editor :tags='tags'></tag-editor>
+    <tag-editor :tags='tags' :type="'link'"></tag-editor>
   </span>
 </template>
 
