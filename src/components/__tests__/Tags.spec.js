@@ -12,7 +12,7 @@ describe('Tags', () => {
   })
 
   it('correct name options', () => {
-    expect(wrapper.vm.$options.name).toBe('tags')
+    expect(wrapper.vm.$options.name).toBe('Tags')
   })
 
   it('correct default props', () => {

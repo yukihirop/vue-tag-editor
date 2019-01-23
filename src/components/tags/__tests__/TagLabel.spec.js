@@ -12,7 +12,7 @@ describe('TagLabel', () => {
   })
 
   it('correct name options', () => {
-    expect(wrapper.vm.$options.name).toBe('tag-label')
+    expect(wrapper.vm.$options.name).toBe('TagLabel')
   })
 
   it('renders correctly (snapshots)', () => {

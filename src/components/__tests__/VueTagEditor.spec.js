@@ -12,7 +12,7 @@ describe('VueTagEditor', () => {
   })
 
   it('correct name options', () => {
-    expect(wrapper.vm.$options.name).toBe('vue-tag-editor')
+    expect(wrapper.vm.$options.name).toBe('VueTagEditor')
   })
 
   it('correct default props', () => {

@@ -21,7 +21,7 @@ describe('TagLink', () => {
   })
 
   it('correct name options', () => {
-    expect(wrapper.vm.$options.name).toBe('tag-link')
+    expect(wrapper.vm.$options.name).toBe('TagLink')
   })
 
   it('renders correctly (snapshots)', () => {
