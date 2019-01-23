@@ -1,7 +1,15 @@
 <template>
   <span>
-    <tags :tags='tags' :type='type' :eventHub='eventHub'></tags>
-    <input placeholder="Add tags..." v-model="tag" @keyup.enter="inputTag"></input>
+    <tags
+      :tags="tags"
+      :type="type"
+      :event-hub="eventHub"
+    />
+    <input
+      v-model="tag"
+      placeholder="Add tags..."
+      @keyup.enter="inputTag"
+    ></input>
   </span>
 </template>
 
@@ -10,7 +18,10 @@ import Vue from 'vue'
 import Tags from './Tags.vue'
 
 export default {
-  name: 'vue-tag-editor',
+  name: 'VueTagEditor',
+  components:{
+    Tags: Tags
+  },
   props: {
     tags:{
       type: Array,
@@ -20,9 +31,6 @@ export default {
       type: String,
       default: 'label'
     },
-  },
-  components:{
-    Tags: Tags
   },
   data(){
     return {

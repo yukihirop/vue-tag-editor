@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "tag-label",
+  name: "TagLabel",
   props:{
     tagname: {
       type: String,

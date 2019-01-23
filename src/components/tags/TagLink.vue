@@ -1,6 +1,9 @@
 <template>
   <span>
-    <span @click="emitTagClick" ref='tagname'>
+    <span
+      ref="tagname"
+      @click="emitTagClick"
+    >
       <a>
         <span>{{ tagname }}</span>
       </a>
@@ -13,7 +16,7 @@
 
 <script>
 export default {
-  name: "tag-link",
+  name: "TagLink",
   props:{
     tagname:{
       type: String,

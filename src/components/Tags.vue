@@ -1,8 +1,17 @@
 <template>
   <span>
-    <span v-for='(tag, index) in tags'>
-      <tag-label v-if='isLabel' :tagname='tag' @delete-tag='deleteTag(index)'></tag-label>
-      <tag-link v-if='isLink' :tagname='tag' @delete-tag='deleteTag(index)' :eventHub='eventHub'></tag-link>
+    <span v-for="(tag, index) in tags">
+      <tag-label
+        v-if="isLabel"
+        :tagname="tag"
+        @delete-tag="deleteTag(index)"
+      />
+      <tag-link
+        v-if="isLink"
+        :tagname="tag"
+        :event-hub="eventHub"
+        @delete-tag="deleteTag(index)"
+      />
     </span>
   </span>
 </template>
@@ -12,7 +21,11 @@ import TagLabel from "./tags/TagLabel.vue"
 import TagLink from "./tags/TagLink.vue"
 
 export default {
-  name: "tags",
+  name: "Tags",
+  components: {
+    TagLabel: TagLabel,
+    TagLink: TagLink
+  },
   props: {
     tags: {
       type: Array,
@@ -26,21 +39,17 @@ export default {
       type: Object
     }
   },
-  components: {
-    TagLabel: TagLabel,
-    TagLink: TagLink
-  },
-  methods: {
-    deleteTag(index){
-      this.tags.splice(index, 1)
-    }
-  },
   computed:{
     isLabel: function() {
       return this.type === 'label'
     },
     isLink: function() {
       return this.type === 'link'
+    }
+  },
+  methods: {
+    deleteTag(index){
+      this.tags.splice(index, 1)
     }
   }
 }
