@@ -1,6 +1,8 @@
 <template>
   <span>
-    <tag-editor :tags='tags' :type="'link'" @tag-click-handler='tagClick'></tag-editor>
+    <tag-editor :tags='tagLabels' :type="'label'" @tag-click-handler='tagClick'></tag-editor>
+    <br/>
+    <tag-editor :tags='tagLinks' :type="'link'" @tag-click-handler='tagClick'></tag-editor>
   </span>
 </template>
 
@@ -8,12 +10,13 @@
 export default {
   data(){
     return {
-      tags: ['javascript', 'ruby']
+      tagLabels: ['javascript', 'ruby'],
+      tagLinks:  ['javascript', 'ruby']
     }
   },
   methods: {
     tagClick(tag){
-      console.log(tag)
+      alert(tag + ' is click!')
     }
   }
 }

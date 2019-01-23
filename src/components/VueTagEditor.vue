@@ -1,12 +1,13 @@
 <template>
   <span>
-    <tags :tags='tags' :type='type'></tags>
+    <tags :tags='tags' :type='type' :eventHub='eventHub'></tags>
     <input placeholder="Add tags..." v-model="tag" @keyup.enter="inputTag"></input>
   </span>
 </template>
 
 <script>
-import Tags from "./Tags.vue"
+import Vue from 'vue'
+import Tags from './Tags.vue'
 
 export default {
   name: 'vue-tag-editor',
@@ -18,18 +19,19 @@ export default {
     type: {
       type: String,
       default: 'label'
-    }
+    },
   },
   components:{
     Tags: Tags
   },
   data(){
     return {
-      tag: ''
+      tag: '',
+      eventHub: new Vue()
     }
   },
   mounted(){
-    this.$eventHub.$on('tag-click', this._tagClick)
+    this.eventHub.$on('tag-click', this._tagClick)
   },
   methods: {
     inputTag(){

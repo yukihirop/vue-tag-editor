@@ -18,6 +18,9 @@ export default {
     tagname:{
       type: String,
       default: ''
+    },
+    eventHub: {
+      type: Object
     }
   },
   methods: {
@@ -25,7 +28,7 @@ export default {
       this.$emit('delete-tag')
     },
     emitTagClick(){
-      this.$eventHub.$emit('tag-click', this.$refs.tagname.textContent)
+      this.eventHub.$emit('tag-click', this.$refs.tagname.textContent)
     }
   }
 }

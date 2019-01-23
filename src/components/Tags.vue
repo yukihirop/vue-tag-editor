@@ -2,7 +2,7 @@
   <span>
     <span v-for='(tag, index) in tags'>
       <tag-label v-if='isLabel' :tagname='tag' @delete-tag='deleteTag(index)'></tag-label>
-      <tag-link v-if='isLink' :tagname='tag' @delete-tag='deleteTag(index)'></tag-link>
+      <tag-link v-if='isLink' :tagname='tag' @delete-tag='deleteTag(index)' :eventHub='eventHub'></tag-link>
     </span>
   </span>
 </template>
@@ -21,6 +21,9 @@ export default {
     type: {
       type: String,
       default: 'label'
+    },
+    eventHub: {
+      type: Object
     }
   },
   components: {
