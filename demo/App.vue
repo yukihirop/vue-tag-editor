@@ -1,7 +1,8 @@
 <template>
   <span>
-    <tag-editor :tags='tagLabels' :type="'label'" @tag-click-handler='tagClick'></tag-editor>
+    <tag-editor :tags='tagLabels' :type="'label'"></tag-editor>
     <br/>
+    <!-- tag-click-handler is effective only when type === 'link' -->
     <tag-editor :tags='tagLinks' :type="'link'" @tag-click-handler='tagClick'></tag-editor>
   </span>
 </template>
