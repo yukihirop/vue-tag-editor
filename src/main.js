@@ -1,7 +1,3 @@
-import Vue from 'vue'
-import App from './App.vue'
+import VueTagEditor from './components/VueTagEditor'
 
-new Vue({
-  el: '#app',
-  render: h => h(App)
-})
+export default VueTagEditor

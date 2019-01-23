@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagLink renders correctly (snapshots) 1`] = `
+<span>
+  <span>
+    <a>
+      <span>
+        test
+      </span>
+    </a>
+  </span>
+   
+  <button>
+    
+    x
+  
+  </button>
+</span>
+`;

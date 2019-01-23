@@ -2,5 +2,22 @@
   "presets": [
     ["env", { "modules": false }],
     "stage-3"
-  ]
+  ],
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias":{
+        "@": "./src"
+      }
+    }]
+  ],
+  // Enable node for Jest
+  // https://vue-test-utils.vuejs.org/ja/guides/testing-single-file-components-with-jest.html
+  "env": {
+    "test": {
+      "presets": [
+        ["env", { "targets": { "node": "current" }}]
+      ]
+    }
+  }
 }

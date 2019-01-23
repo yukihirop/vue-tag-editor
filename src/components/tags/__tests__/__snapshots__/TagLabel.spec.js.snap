@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagLabel renders correctly (snapshots) 1`] = `
+<span>
+  <span>
+    <label>
+      test
+    </label>
+  </span>
+   
+  <button>
+    
+    x
+  
+  </button>
+</span>
+`;
