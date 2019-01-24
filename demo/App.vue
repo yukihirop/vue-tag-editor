@@ -3,6 +3,8 @@
     <div>
       <h2>None Style</h2>
       <span>
+        <h4>type: label</h4>
+        <!-- do not set css -->
         <div class="tagEditor">
           <tag-editor
             :tags='tagLabels'
@@ -12,10 +14,17 @@
           ></tag-editor>
         </div>
         <!-- handler-after-click-tag is effective only when type === 'link' -->
+        <!-- if set css, set :tagAreaClass, :tagContentClass, :deleteAreaClass, :deleteContentClass, :inputContentClass -->
+        <h4>type: link</h4>
         <div class="tagEditor">
           <tag-editor
             :tags='tagLinks'
             :type="'link'"
+            :tagAreaClass="tagArea"
+            :tagContentClass="tagContentClass"
+            :deleteAreaClass="deleteAreaClass"
+            :deleteContentClass="deleteContentClass"
+            :inputContentClass="inputContentClass"
             @handler-after-click-tag='handlerAfterClickTag'
             @handler-after-input-tag='handlerAfterInputTag'
             @handler-after-delete-tag='handlerAfterDeleteTag'
@@ -23,9 +32,12 @@
         </div>
       </span>
     </div>
+    <br/>
     <div>
       <h2>Bulma</h2>
       <span>
+        <h4>type: label</h4>
+        <!-- do not set css -->
         <div class="tagEditor">
           <tag-editor-bulma
             :tags='tagLabelsBulma'
@@ -35,10 +47,13 @@
           ></tag-editor-bulma>
         </div>
         <!-- handler-after-click-tag is effective only when type === 'link' -->
+        <!-- if set css, set :inputContentClass -->
+        <h4>type: link</h4>
         <div class="tagEditor">
           <tag-editor-bulma
             :tags='tagLinksBulma'
             :type="'link'"
+            :inputContentClass="inputContentClass"
             @handler-after-click-tag='handlerAfterClickTag'
             @handler-after-input-tag='handlerAfterInputTag'
             @handler-after-delete-tag='handlerAfterDeleteTag'
@@ -57,6 +72,11 @@ export default {
       tagLinks:  ['javascript', 'ruby'],
       tagLabelsBulma: ['javascript', 'ruby'],
       tagLinksBulma:  ['javascript', 'ruby'],
+      tagAreaClass: "tagArea",
+      tagContentClass: "tagContent",
+      deleteAreaClass: "deleteArea",
+      deleteContentClass: "deleteContent",
+      inputContentClass: "inputContent"
     }
   },
   methods: {
@@ -85,5 +105,11 @@ export default {
   border: 1px solid gray;
   margin: 12px;
   padding: 6px;
+}
+/deep/ .inputContent {
+  border: none;
+  height: 16px;
+}
+/deep/ .tagArea, .tagContent, .deleteArea, .deleteContent {
 }
 </style>
