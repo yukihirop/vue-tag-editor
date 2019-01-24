@@ -1,7 +1,10 @@
 <template>
   <span>
-    <button @click="emitDeleteTag">
-      x
+    <button
+      @click="emitDeleteTag"
+      :class="deleteAreaClass"
+      >
+      <span :class="deleteContentClass">x</span>
     </button>
   </span>
 </template>
@@ -19,6 +22,14 @@ export default {
       default(){
         return null
       }
+    },
+    deleteAreaClass: {
+      type: String,
+      default: ""
+    },
+    deleteContentClass: {
+      type: String,
+      default: ""
     }
   },
   methods: {

@@ -16,7 +16,9 @@ describe('TagDeleteButton', () => {
     localVue,
     propsData: {
       tagname: 'test',
-      eventHub: eventHub
+      eventHub: eventHub,
+      deleteAreaClass: 'deleteAreaClass',
+      deleteContentClass: 'deleteContentClass'
     }
   })
 
@@ -45,5 +47,10 @@ describe('TagDeleteButton', () => {
     expect(wrapperEventHub.emitted('delete-tag')).toBeTruthy()
     expect(wrapperEventHub.emitted('delete-tag').length).toBe(1)
     expect(wrapperEventHub.emitted('delete-tag')[0]).toEqual(['test'])
+  })
+
+  it('has correct class', () => {
+    // expect(wrapper.classes()).toContain("deleteAreaClass")
+    // expect(wrapper.classes()).toContain("deleteContentClass")
   })
 })
