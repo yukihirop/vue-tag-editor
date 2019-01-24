@@ -3,7 +3,7 @@
     <tag-editor :tags='tagLabels' :type="'label'"></tag-editor>
     <br/>
     <!-- tag-click-handler is effective only when type === 'link' -->
-    <tag-editor :tags='tagLinks' :type="'link'" @tag-click-handler='tagClick'></tag-editor>
+    <tag-editor :tags='tagLinks' :type="'link'" @handler-after-click-tag='handlerAfterClickTag'></tag-editor>
   </span>
 </template>
 
@@ -16,7 +16,7 @@ export default {
     }
   },
   methods: {
-    tagClick(tag){
+    handlerAfterClickTag(tag){
       alert(tag + ' is click!')
     }
   }
