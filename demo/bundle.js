@@ -10431,47 +10431,71 @@ process.umask = function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  name: 'vue-tag-editor',
+  name: 'VueTagEditor',
+  components: {
+    Tags: __WEBPACK_IMPORTED_MODULE_1__Tags_vue__["a" /* default */]
+  },
   props: {
     tags: {
       type: Array,
-      default: []
+      default: function _default() {
+        return [];
+      }
     },
     type: {
       type: String,
       default: 'label'
     }
   },
-  components: {
-    Tags: __WEBPACK_IMPORTED_MODULE_1__Tags_vue__["a" /* default */]
-  },
   data: function data() {
     return {
       tag: '',
+      isAddTag: false,
       eventHub: new __WEBPACK_IMPORTED_MODULE_0_vue___default.a()
     };
   },
   mounted: function mounted() {
-    this.eventHub.$on('tag-click', this._tagClick);
+    this.eventHub.$on('click-tag', this._emitClickTag);
+    this.eventHub.$on('delete-tag', this._emitDeleteTag);
   },
 
   methods: {
-    inputTag: function inputTag() {
+    inputTagWithEmit: function inputTagWithEmit() {
+      var _this = this;
+
+      var tag = this.tag;
       if (this._enableAdd(this.tag)) {
         this.tags.push(this.tag);
+        this.isAddTag = true;
       }
       this.tag = null;
+
+      this.$nextTick(function () {
+        _this.$emit('handler-after-input-tag', tag, _this.isAddTag);
+        _this.isAddTag = false;
+      });
     },
     _enableAdd: function _enableAdd(tag) {
       return this.tags.indexOf(tag) == -1 && tag != undefined || '';
     },
-    _tagClick: function _tagClick(tag) {
-      this.$emit('tag-click-handler', tag);
+    _emitClickTag: function _emitClickTag(tag) {
+      this.$emit('handler-after-click-tag', tag);
+    },
+    _emitDeleteTag: function _emitDeleteTag(tag) {
+      this.$emit('handler-after-delete-tag', tag);
     }
   }
 });
@@ -10492,32 +10516,45 @@ process.umask = function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  name: "tags",
-  props: {
-    tags: {
-      type: Array,
-      default: []
-    },
-    type: {
-      type: String,
-      default: 'label'
-    },
-    eventHub: {
-      type: Object
-    }
-  },
+  name: "Tags",
   components: {
     TagLabel: __WEBPACK_IMPORTED_MODULE_0__tags_TagLabel_vue__["a" /* default */],
     TagLink: __WEBPACK_IMPORTED_MODULE_1__tags_TagLink_vue__["a" /* default */]
   },
-  methods: {
-    deleteTag: function deleteTag(index) {
-      this.tags.splice(index, 1);
+  props: {
+    tags: {
+      type: Array,
+      default: function _default() {
+        return [];
+      }
+    },
+    type: {
+      type: String,
+      default: ''
+    },
+    eventHub: {
+      type: Object,
+      default: function _default() {
+        return null;
+      }
     }
   },
   computed: {
@@ -10526,6 +10563,11 @@ process.umask = function () {
     },
     isLink: function isLink() {
       return this.type === 'link';
+    }
+  },
+  methods: {
+    deleteTag: function deleteTag(index) {
+      this.tags.splice(index, 1);
     }
   }
 });
@@ -10548,16 +10590,23 @@ process.umask = function () {
 //
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  name: "tag-label",
+  name: "TagLabel",
   props: {
     tagname: {
       type: String,
       default: ''
+    },
+    eventHub: {
+      type: Object,
+      default: function _default() {
+        return null;
+      }
     }
   },
   methods: {
     emitDeleteTag: function emitDeleteTag() {
       this.$emit('delete-tag');
+      this.eventHub.$emit('delete-tag', this.$refs.tagname.textContent);
     }
   }
 });
@@ -10580,24 +10629,31 @@ process.umask = function () {
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  name: "tag-link",
+  name: "TagLink",
   props: {
     tagname: {
       type: String,
       default: ''
     },
     eventHub: {
-      type: Object
+      type: Object,
+      default: function _default() {
+        return null;
+      }
     }
   },
   methods: {
     emitDeleteTag: function emitDeleteTag() {
       this.$emit('delete-tag');
+      this.eventHub.$emit('delete-tag', this.$refs.tagname.textContent);
     },
-    emitTagClick: function emitTagClick() {
-      this.eventHub.$emit('tag-click', this.$refs.tagname.textContent);
+    emitClickTag: function emitClickTag() {
+      this.eventHub.$emit('click-tag', this.$refs.tagname.textContent);
     }
   }
 });
@@ -10607,6 +10663,17 @@ process.umask = function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10626,8 +10693,23 @@ process.umask = function () {
   },
 
   methods: {
-    tagClick: function tagClick(tag) {
+    // Only one argument
+    handlerAfterClickTag: function handlerAfterClickTag(tag) {
       alert(tag + ' is click!');
+    },
+
+    // Only two argument
+    handlerAfterInputTag: function handlerAfterInputTag(tag, isAddTag) {
+      if (isAddTag === true) {
+        console.log(tag + ' is added!');
+      } else {
+        console.log(tag + ' isn\'t added');
+      }
+    },
+
+    // Only one argument
+    handlerAfterDeleteTag: function handlerAfterDeleteTag(tag) {
+      console.log(tag + ' is deleted!');
     }
   }
 });
@@ -11079,7 +11161,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("span", [
-    _c("span", [_c("label", [_vm._v(_vm._s(_vm.tagname))])]),
+    _c("span", { ref: "tagname" }, [
+      _c("label", [_vm._v(_vm._s(_vm.tagname))])
+    ]),
     _vm._v(" "),
     _c("button", { on: { click: _vm.emitDeleteTag } }, [_vm._v("\n    x\n  ")])
   ])
@@ -11186,7 +11270,7 @@ exports = module.exports = __webpack_require__(20)(true);
 
 
 // module
-exports.push([module.i, "\na[data-v-cf6790a4] {\n  text-decoration: none;\n}\na[data-v-cf6790a4]:hover {\n  text-decoration: underline;\n  cursor: pointer;\n}\n", "", {"version":3,"sources":["/Users/fukudayukihiro/JavaScriptProjects/vue-tag-editor/src/components/src/components/tags/TagLink.vue"],"names":[],"mappings":";AAqCA;EACA,sBAAA;CACA;AACA;EACA,2BAAA;EACA,gBAAA;CACA","file":"TagLink.vue","sourcesContent":["<template>\n  <span>\n    <span @click=\"emitTagClick\" ref='tagname'>\n      <a>\n        <span>{{ tagname }}</span>\n      </a>\n    </span>\n    <button @click=\"emitDeleteTag()\">\n      x\n    </button>\n  </span>\n</template>\n\n<script>\nexport default {\n  name: \"tag-link\",\n  props:{\n    tagname:{\n      type: String,\n      default: ''\n    },\n    eventHub: {\n      type: Object\n    }\n  },\n  methods: {\n    emitDeleteTag(){\n      this.$emit('delete-tag')\n    },\n    emitTagClick(){\n      this.eventHub.$emit('tag-click', this.$refs.tagname.textContent)\n    }\n  }\n}\n</script>\n\n<style scoped=\"true\">\na {\n  text-decoration: none;\n}\na:hover {\n  text-decoration: underline;\n  cursor: pointer;\n}\n</style>"],"sourceRoot":""}]);
+exports.push([module.i, "\na[data-v-cf6790a4] {\n  text-decoration: none;\n}\na[data-v-cf6790a4]:hover {\n  text-decoration: underline;\n  cursor: pointer;\n}\n", "", {"version":3,"sources":["/Users/fukudayukihiro/JavaScriptProjects/vue-tag-editor/src/components/src/components/tags/TagLink.vue"],"names":[],"mappings":";AA4CA;EACA,sBAAA;CACA;AACA;EACA,2BAAA;EACA,gBAAA;CACA","file":"TagLink.vue","sourcesContent":["<template>\n  <span>\n    <span\n      ref=\"tagname\"\n      @click=\"emitClickTag\"\n    >\n      <a>\n        <span>{{ tagname }}</span>\n      </a>\n    </span>\n    <button @click=\"emitDeleteTag()\">\n      x\n    </button>\n  </span>\n</template>\n\n<script>\nexport default {\n  name: \"TagLink\",\n  props:{\n    tagname:{\n      type: String,\n      default: ''\n    },\n    eventHub: {\n      type: Object,\n      default(){\n        return null\n      }\n    }\n  },\n  methods: {\n    emitDeleteTag(){\n      this.$emit('delete-tag')\n      this.eventHub.$emit('delete-tag', this.$refs.tagname.textContent)\n    },\n    emitClickTag(){\n      this.eventHub.$emit('click-tag', this.$refs.tagname.textContent)\n    }\n  }\n}\n</script>\n\n<style scoped=\"true\">\na {\n  text-decoration: none;\n}\na:hover {\n  text-decoration: underline;\n  cursor: pointer;\n}\n</style>"],"sourceRoot":""}]);
 
 // exports
 
@@ -11540,7 +11624,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("span", [
-    _c("span", { ref: "tagname", on: { click: _vm.emitTagClick } }, [
+    _c("span", { ref: "tagname", on: { click: _vm.emitClickTag } }, [
       _c("a", [_c("span", [_vm._v(_vm._s(_vm.tagname))])])
     ]),
     _vm._v(" "),
@@ -11582,10 +11666,11 @@ var render = function() {
     _vm._l(_vm.tags, function(tag, index) {
       return _c(
         "span",
+        { key: tag.id },
         [
           _vm.isLabel
             ? _c("tag-label", {
-                attrs: { tagname: tag },
+                attrs: { tagname: tag, "event-hub": _vm.eventHub },
                 on: {
                   "delete-tag": function($event) {
                     _vm.deleteTag(index)
@@ -11596,7 +11681,7 @@ var render = function() {
           _vm._v(" "),
           _vm.isLink
             ? _c("tag-link", {
-                attrs: { tagname: tag, eventHub: _vm.eventHub },
+                attrs: { tagname: tag, "event-hub": _vm.eventHub },
                 on: {
                   "delete-tag": function($event) {
                     _vm.deleteTag(index)
@@ -11635,7 +11720,7 @@ var render = function() {
     "span",
     [
       _c("tags", {
-        attrs: { tags: _vm.tags, type: _vm.type, eventHub: _vm.eventHub }
+        attrs: { tags: _vm.tags, type: _vm.type, "event-hub": _vm.eventHub }
       }),
       _vm._v(" "),
       _c("input", {
@@ -11657,7 +11742,7 @@ var render = function() {
             ) {
               return null
             }
-            return _vm.inputTag($event)
+            return _vm.inputTagWithEmit($event)
           },
           input: function($event) {
             if ($event.target.composing) {
@@ -11746,13 +11831,23 @@ var render = function() {
   return _c(
     "span",
     [
-      _c("tag-editor", { attrs: { tags: _vm.tagLabels, type: "label" } }),
+      _c("tag-editor", {
+        attrs: { tags: _vm.tagLabels, type: "label" },
+        on: {
+          "handler-after-input-tag": _vm.handlerAfterInputTag,
+          "handler-after-delete-tag": _vm.handlerAfterDeleteTag
+        }
+      }),
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
       _c("tag-editor", {
         attrs: { tags: _vm.tagLinks, type: "link" },
-        on: { "tag-click-handler": _vm.tagClick }
+        on: {
+          "handler-after-click-tag": _vm.handlerAfterClickTag,
+          "handler-after-input-tag": _vm.handlerAfterInputTag,
+          "handler-after-delete-tag": _vm.handlerAfterDeleteTag
+        }
       })
     ],
     1

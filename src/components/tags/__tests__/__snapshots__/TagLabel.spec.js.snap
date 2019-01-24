@@ -8,10 +8,8 @@ exports[`TagLabel renders correctly (snapshots) 1`] = `
     </label>
   </span>
    
-  <button>
-    
-    x
-  
-  </button>
+  <tag-delete-button-stub
+    tagname="test"
+  />
 </span>
 `;

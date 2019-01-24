@@ -7,6 +7,7 @@
       <tag-label
         v-if="isLabel"
         :tagname="tag"
+        :event-hub="eventHub"
         @delete-tag="deleteTag(index)"
       />
       <tag-link

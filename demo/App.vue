@@ -1,9 +1,20 @@
 <template>
   <span>
-    <tag-editor :tags='tagLabels' :type="'label'"></tag-editor>
+    <tag-editor
+      :tags='tagLabels'
+      :type="'label'"
+      @handler-after-input-tag='handlerAfterInputTag'
+      @handler-after-delete-tag='handlerAfterDeleteTag'
+    ></tag-editor>
     <br/>
-    <!-- tag-click-handler is effective only when type === 'link' -->
-    <tag-editor :tags='tagLinks' :type="'link'" @tag-click-handler='tagClick'></tag-editor>
+    <!-- handler-after-click-tag is effective only when type === 'link' -->
+    <tag-editor
+      :tags='tagLinks'
+      :type="'link'"
+      @handler-after-click-tag='handlerAfterClickTag'
+      @handler-after-input-tag='handlerAfterInputTag'
+      @handler-after-delete-tag='handlerAfterDeleteTag'
+    ></tag-editor>
   </span>
 </template>
 
@@ -16,8 +27,21 @@ export default {
     }
   },
   methods: {
-    tagClick(tag){
+    // Only one argument
+    handlerAfterClickTag(tag){
       alert(tag + ' is click!')
+    },
+    // Only two argument
+    handlerAfterInputTag(tag, isAddTag){
+      if (isAddTag === true) {
+        console.log(tag + ' is added!')
+      } else {
+        console.log(tag + ' isn\'t added')
+      }
+    },
+    // Only one argument
+    handlerAfterDeleteTag(tag){
+      console.log(tag + ' is deleted!')
     }
   }
 }

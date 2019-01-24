@@ -2,21 +2,28 @@
   <span>
     <span
       ref="tagname"
-      @click="emitTagClick"
+      @click="emitClickTag"
     >
       <a>
         <span>{{ tagname }}</span>
       </a>
     </span>
-    <button @click="emitDeleteTag()">
-      x
-    </button>
+    <tag-delete-button
+      :tagname="tagname"
+      :event-hub="eventHub"
+      @delete-tag="emitDeleteTag"
+    />
   </span>
 </template>
 
 <script>
+import TagDeleteButton from './TagDeleteButton'
+
 export default {
   name: "TagLink",
+  components: {
+    TagDeleteButton: TagDeleteButton
+  },
   props:{
     tagname:{
       type: String,
@@ -33,8 +40,8 @@ export default {
     emitDeleteTag(){
       this.$emit('delete-tag')
     },
-    emitTagClick(){
-      this.eventHub.$emit('tag-click', this.$refs.tagname.textContent)
+    emitClickTag(){
+      this.eventHub.$emit('click-tag', this.$refs.tagname.textContent)
     }
   }
 }
