@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VueTagEditorBulma renders correctly (snapshots) 1`] = `
+<span>
+  <tags-stub
+    deleteareaclass="deleteAreaClass"
+    deletecontentclass="deleteContentClass"
+    eventhub="[object Object]"
+    tagareaclass="tagAreaClass"
+    tagcontentclass=""
+    tags="javascript,ruby"
+    type="label"
+  />
+   
+  <input
+    placeholder="Add tags..."
+  />
+</span>
+`;

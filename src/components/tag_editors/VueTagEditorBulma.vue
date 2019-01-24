@@ -4,6 +4,10 @@
       :tags="tags"
       :type="type"
       :event-hub="eventHub"
+      :tagAreaClass="tagAreaClass"
+      :tagContentClass="tagContentClass"
+      :deleteAreaClass="deleteAreaClass"
+      :deleteContentClass="deleteContentClass"
     />
     <input
       v-model="tag"
@@ -38,7 +42,11 @@ export default {
     return {
       tag: '',
       isAddTag: false,
-      eventHub: new Vue()
+      eventHub: new Vue(),
+      tagAreaClass: "tagAreaClass",
+      tagContentClass: "",
+      deleteAreaClass: "deleteAreaClass",
+      deleteContentClass: "deleteContentClass"
     }
   },
   mounted(){
@@ -72,6 +80,22 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped="true">
-  @import "../../assets/sass/bulma.scss";
+<style lang="scss" scoped>
+@import "../../assets/sass/bulma.scss";
+
+/deep/ .tagAreaClass {
+  @extend .tag:not(body);
+  @extend .is-primary;
+  padding: 2px 4px 2px 4px;
+  margin: 2px 4px 2px 0px;
+}
+/deep/ .deleteAreaClass {
+  @extend .is-primary;
+  background-color: transparent;
+  border: none;
+}
+/deep/ .deleteContentClass {
+  @extend .is-primary;
+  color: white;
+}
 </style>>
