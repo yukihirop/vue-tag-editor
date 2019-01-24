@@ -1,11 +1,14 @@
 <template>
-  <span>
-    <span ref="tagname">
-      <label>{{ tagname }}</label>
+  <span :class="tagAreaClass">
+    <span
+      ref="tagname">
+      <label :class="tagContentClass">{{ tagname }}</label>
     </span>
     <tag-delete-button
       :tagname="tagname"
       :event-hub="eventHub"
+      :deleteAreaClass="deleteAreaClass"
+      :deleteContentClass="deleteContentClass"
       @delete-tag="emitDeleteTag"
     />
   </span>
@@ -29,6 +32,22 @@ export default {
       default(){
         return null
       }
+    },
+    tagAreaClass: {
+      type: String,
+      default: ""
+    },
+    tagContentClass: {
+      type: String,
+      default: ""
+    },
+    deleteAreaClass: {
+      type: String,
+      default: ""
+    },
+    deleteContentClass: {
+      type: String,
+      default: ""
     }
   },
   methods: {

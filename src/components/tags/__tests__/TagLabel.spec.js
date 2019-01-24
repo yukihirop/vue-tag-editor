@@ -7,7 +7,11 @@ describe('TagLabel', () => {
   const wrapper = shallowMount(TagLabel, {
     localVue,
     propsData: {
-      tagname: 'test'
+      tagname: 'test',
+      tagAreaClass: 'tagAreaClass',
+      tagContentClass: 'tagContentClass',
+      deleteAreaClass: 'deleteAreaClass',
+      deleteContentClass: 'deleteContentClass'
     }
   })
 
@@ -20,7 +24,7 @@ describe('TagLabel', () => {
   })
 
   it('renders the correct markup', () => {
-    expect(wrapper.html()).toContain("<span><span><label>test</label></span>")
+    expect(wrapper.html()).toContain("test")
     expect(wrapper.html()).toContain("tag-delete-button-stub")
   })
 
@@ -33,5 +37,12 @@ describe('TagLabel', () => {
 
     expect(wrapper.emitted('delete-tag')).toBeTruthy()
     expect(wrapper.emitted('delete-tag').length).toBe(1)
+  })
+
+  it('has correct class', () => {
+    expect(wrapper.classes()).toContain("tagAreaClass")
+    // expect(wrapper.classes()).toContain("tagContentClass")
+    // expect(wrapper.classes()).toContain("deleteAreaClass")
+    // expect(wrapper.classes()).toContain("deleteContentClass")
   })
 })
