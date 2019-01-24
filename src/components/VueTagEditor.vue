@@ -10,6 +10,7 @@
       :deleteContentClass="deleteContentClass"
     />
     <input
+      :class="inputContentClass"
       v-model="tag"
       placeholder="Add tags..."
       @keyup.enter="inputTagWithEmit"
@@ -52,6 +53,10 @@ export default {
     deleteContentClass: {
       type: String,
       default: ""
+    },
+    inputContentClass: {
+      type: String,
+      default: ''
     }
   },
   data(){

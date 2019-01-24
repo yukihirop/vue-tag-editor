@@ -13,6 +13,7 @@ exports[`VueTagEditor renders correctly (snapshots) 1`] = `
   />
    
   <input
+    class=""
     placeholder="Add tags..."
   />
 </span>
