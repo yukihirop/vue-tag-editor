@@ -43,6 +43,9 @@ describe('TagLink', () => {
 
     expect(wrapper.emitted('delete-tag')).toBeTruthy()
     expect(wrapper.emitted('delete-tag').length).toBe(1)
+    expect(wrapperEventHub.emitted('delete-tag')).toBeTruthy()
+    expect(wrapperEventHub.emitted('delete-tag').length).toBe(1)
+    expect(wrapperEventHub.emitted('delete-tag')[0]).toEqual(['test'])
   })
 
   it('tag-click button click should call emitTagClick', () => {

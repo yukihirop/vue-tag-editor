@@ -43,6 +43,7 @@ export default {
   },
   mounted(){
     this.eventHub.$on('click-tag', this._emitClickTag)
+    this.eventHub.$on('delete-tag', this._emitDeleteTag)
   },
   methods: {
     inputTagWithEmit(){
@@ -63,6 +64,9 @@ export default {
     },
     _emitClickTag(tag){
       this.$emit('handler-after-click-tag', tag)
+    },
+    _emitDeleteTag(tag){
+      this.$emit('handler-after-delete-tag', tag)
     }
   }
 }

@@ -3,11 +3,20 @@ import TagLabel from '../TagLabel'
 
 const localVue = createLocalVue()
 
+const wrapperEventHub = mount(TagLabel, {
+  localVue,
+  propsData: {
+    tagname: 'test'
+  }
+})
+const eventHub = wrapperEventHub.vm
+
 describe('TagLabel', () => {
   const wrapper = mount(TagLabel, {
     localVue,
     propsData: {
-      tagname: 'test'
+      tagname: 'test',
+      eventHub: eventHub
     }
   })
 
@@ -34,5 +43,8 @@ describe('TagLabel', () => {
 
     expect(wrapper.emitted('delete-tag')).toBeTruthy()
     expect(wrapper.emitted('delete-tag').length).toBe(1)
+    expect(wrapperEventHub.emitted('delete-tag')).toBeTruthy()
+    expect(wrapperEventHub.emitted('delete-tag').length).toBe(1)
+    expect(wrapperEventHub.emitted('delete-tag')[0]).toEqual(['test'])
   })
 })

@@ -1,6 +1,6 @@
 <template>
   <span>
-    <span>
+    <span ref="tagname">
       <label>{{ tagname }}</label>
     </span>
     <button @click="emitDeleteTag">
@@ -16,11 +16,18 @@ export default {
     tagname: {
       type: String,
       default: ''
+    },
+    eventHub: {
+      type: Object,
+      default(){
+        return null
+      }
     }
   },
   methods: {
     emitDeleteTag() {
       this.$emit('delete-tag')
+      this.eventHub.$emit('delete-tag', this.$refs.tagname.textContent)
     }
   }
 }
