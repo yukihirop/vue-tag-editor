@@ -41,7 +41,7 @@ export default {
     }
   },
   mounted(){
-    this.eventHub.$on('click-tag', this._clickTag)
+    this.eventHub.$on('click-tag', this._emitClickTag)
   },
   methods: {
     inputTag(){
@@ -53,7 +53,7 @@ export default {
     _enableAdd(tag){
       return (this.tags.indexOf(tag) == -1) && tag != undefined || ''
     },
-    _clickTag(tag){
+    _emitClickTag(tag){
       this.$emit('handler-after-click-tag', tag)
     }
   }
