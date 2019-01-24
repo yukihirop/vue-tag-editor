@@ -49,8 +49,8 @@ describe('TagLink', () => {
     const anchor = wrapper.find({ ref: 'tagname'})
     anchor.trigger('click')
 
-    expect(wrapperEventHub.emitted('tag-click')).toBeTruthy()
-    expect(wrapperEventHub.emitted('tag-click').length).toBe(1)
-    expect(wrapperEventHub.emitted('tag-click')[0]).toEqual(['test'])
+    expect(wrapperEventHub.emitted('click-tag')).toBeTruthy()
+    expect(wrapperEventHub.emitted('click-tag').length).toBe(1)
+    expect(wrapperEventHub.emitted('click-tag')[0]).toEqual(['test'])
   })
 })

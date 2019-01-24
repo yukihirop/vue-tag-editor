@@ -2,7 +2,7 @@
   <span>
     <span
       ref="tagname"
-      @click="emitTagClick"
+      @click="emitClickTag"
     >
       <a>
         <span>{{ tagname }}</span>
@@ -33,8 +33,8 @@ export default {
     emitDeleteTag(){
       this.$emit('delete-tag')
     },
-    emitTagClick(){
-      this.eventHub.$emit('tag-click', this.$refs.tagname.textContent)
+    emitClickTag(){
+      this.eventHub.$emit('click-tag', this.$refs.tagname.textContent)
     }
   }
 }
