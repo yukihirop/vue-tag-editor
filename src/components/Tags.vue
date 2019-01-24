@@ -8,12 +8,20 @@
         v-if="isLabel"
         :tagname="tag"
         :event-hub="eventHub"
+        :tagAreaClass="tagAreaClass"
+        :tagContentClass="tagContentClass"
+        :deleteAreaClass="deleteAreaClass"
+        :deleteContentClass="deleteContentClass"
         @delete-tag="deleteTag(index)"
       />
       <tag-link
         v-if="isLink"
         :tagname="tag"
         :event-hub="eventHub"
+        :tagAreaClass="tagAreaClass"
+        :tagContentClass="tagContentClass"
+        :deleteAreaClass="deleteAreaClass"
+        :deleteContentClass="deleteContentClass"
         @delete-tag="deleteTag(index)"
       />
     </span>
@@ -46,6 +54,22 @@ export default {
       default(){
         return null
       }
+    },
+    tagAreaClass: {
+      type: String,
+      default: ""
+    },
+    tagContentClass: {
+      type: String,
+      default: ""
+    },
+    deleteAreaClass: {
+      type: String,
+      default: ""
+    },
+    deleteContentClass: {
+      type: String,
+      default: ""
     }
   },
   computed:{
