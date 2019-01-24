@@ -10463,24 +10463,34 @@ process.umask = function () {
   data: function data() {
     return {
       tag: '',
+      isAddTag: false,
       eventHub: new __WEBPACK_IMPORTED_MODULE_0_vue___default.a()
     };
   },
   mounted: function mounted() {
-    this.eventHub.$on('tag-click', this._tagClick);
+    this.eventHub.$on('click-tag', this._emitClickTag);
   },
 
   methods: {
-    inputTag: function inputTag() {
+    inputTagWithEmit: function inputTagWithEmit() {
+      var _this = this;
+
+      var tag = this.tag;
       if (this._enableAdd(this.tag)) {
         this.tags.push(this.tag);
+        this.isAddTag = true;
       }
       this.tag = null;
+
+      this.$nextTick(function () {
+        _this.$emit('handler-after-input-tag', tag, _this.isAddTag);
+        _this.isAddTag = false;
+      });
     },
     _enableAdd: function _enableAdd(tag) {
       return this.tags.indexOf(tag) == -1 && tag != undefined || '';
     },
-    _tagClick: function _tagClick(tag) {
+    _emitClickTag: function _emitClickTag(tag) {
       this.$emit('handler-after-click-tag', tag);
     }
   }
@@ -10629,8 +10639,8 @@ process.umask = function () {
     emitDeleteTag: function emitDeleteTag() {
       this.$emit('delete-tag');
     },
-    emitTagClick: function emitTagClick() {
-      this.eventHub.$emit('tag-click', this.$refs.tagname.textContent);
+    emitClickTag: function emitClickTag() {
+      this.eventHub.$emit('click-tag', this.$refs.tagname.textContent);
     }
   }
 });
@@ -10640,6 +10650,11 @@ process.umask = function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10659,8 +10674,18 @@ process.umask = function () {
   },
 
   methods: {
+    // Only one argument
     handlerAfterClickTag: function handlerAfterClickTag(tag) {
       alert(tag + ' is click!');
+    },
+
+    // Only two argument
+    handlerAfterInputTag: function handlerAfterInputTag(tag, isAddTag) {
+      if (isAddTag === true) {
+        console.log(tag + ' is added!');
+      } else {
+        console.log(tag + ' isn\'t added');
+      }
     }
   }
 });
@@ -11219,7 +11244,7 @@ exports = module.exports = __webpack_require__(20)(true);
 
 
 // module
-exports.push([module.i, "\na[data-v-cf6790a4] {\n  text-decoration: none;\n}\na[data-v-cf6790a4]:hover {\n  text-decoration: underline;\n  cursor: pointer;\n}\n", "", {"version":3,"sources":["/Users/fukudayukihiro/JavaScriptProjects/vue-tag-editor/src/components/src/components/tags/TagLink.vue"],"names":[],"mappings":";AA2CA;EACA,sBAAA;CACA;AACA;EACA,2BAAA;EACA,gBAAA;CACA","file":"TagLink.vue","sourcesContent":["<template>\n  <span>\n    <span\n      ref=\"tagname\"\n      @click=\"emitTagClick\"\n    >\n      <a>\n        <span>{{ tagname }}</span>\n      </a>\n    </span>\n    <button @click=\"emitDeleteTag()\">\n      x\n    </button>\n  </span>\n</template>\n\n<script>\nexport default {\n  name: \"TagLink\",\n  props:{\n    tagname:{\n      type: String,\n      default: ''\n    },\n    eventHub: {\n      type: Object,\n      default(){\n        return null\n      }\n    }\n  },\n  methods: {\n    emitDeleteTag(){\n      this.$emit('delete-tag')\n    },\n    emitTagClick(){\n      this.eventHub.$emit('tag-click', this.$refs.tagname.textContent)\n    }\n  }\n}\n</script>\n\n<style scoped=\"true\">\na {\n  text-decoration: none;\n}\na:hover {\n  text-decoration: underline;\n  cursor: pointer;\n}\n</style>"],"sourceRoot":""}]);
+exports.push([module.i, "\na[data-v-cf6790a4] {\n  text-decoration: none;\n}\na[data-v-cf6790a4]:hover {\n  text-decoration: underline;\n  cursor: pointer;\n}\n", "", {"version":3,"sources":["/Users/fukudayukihiro/JavaScriptProjects/vue-tag-editor/src/components/src/components/tags/TagLink.vue"],"names":[],"mappings":";AA2CA;EACA,sBAAA;CACA;AACA;EACA,2BAAA;EACA,gBAAA;CACA","file":"TagLink.vue","sourcesContent":["<template>\n  <span>\n    <span\n      ref=\"tagname\"\n      @click=\"emitClickTag\"\n    >\n      <a>\n        <span>{{ tagname }}</span>\n      </a>\n    </span>\n    <button @click=\"emitDeleteTag()\">\n      x\n    </button>\n  </span>\n</template>\n\n<script>\nexport default {\n  name: \"TagLink\",\n  props:{\n    tagname:{\n      type: String,\n      default: ''\n    },\n    eventHub: {\n      type: Object,\n      default(){\n        return null\n      }\n    }\n  },\n  methods: {\n    emitDeleteTag(){\n      this.$emit('delete-tag')\n    },\n    emitClickTag(){\n      this.eventHub.$emit('click-tag', this.$refs.tagname.textContent)\n    }\n  }\n}\n</script>\n\n<style scoped=\"true\">\na {\n  text-decoration: none;\n}\na:hover {\n  text-decoration: underline;\n  cursor: pointer;\n}\n</style>"],"sourceRoot":""}]);
 
 // exports
 
@@ -11573,7 +11598,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("span", [
-    _c("span", { ref: "tagname", on: { click: _vm.emitTagClick } }, [
+    _c("span", { ref: "tagname", on: { click: _vm.emitClickTag } }, [
       _c("a", [_c("span", [_vm._v(_vm._s(_vm.tagname))])])
     ]),
     _vm._v(" "),
@@ -11691,7 +11716,7 @@ var render = function() {
             ) {
               return null
             }
-            return _vm.inputTag($event)
+            return _vm.inputTagWithEmit($event)
           },
           input: function($event) {
             if ($event.target.composing) {
@@ -11786,7 +11811,10 @@ var render = function() {
       _vm._v(" "),
       _c("tag-editor", {
         attrs: { tags: _vm.tagLinks, type: "link" },
-        on: { "handler-after-click-tag": _vm.handlerAfterClickTag }
+        on: {
+          "handler-after-click-tag": _vm.handlerAfterClickTag,
+          "handler-after-input-tag": _vm.handlerAfterInputTag
+        }
       })
     ],
     1
