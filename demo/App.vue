@@ -1,13 +1,19 @@
 <template>
   <span>
-    <tag-editor :tags='tagLabels' :type="'label'"></tag-editor>
+    <tag-editor
+      :tags='tagLabels'
+      :type="'label'"
+      @handler-after-input-tag='handlerAfterInputTag'
+      @handler-after-delete-tag='handlerAfterDeleteTag'
+    ></tag-editor>
     <br/>
-    <!-- tag-click-handler is effective only when type === 'link' -->
+    <!-- handler-after-click-tag is effective only when type === 'link' -->
     <tag-editor
       :tags='tagLinks'
       :type="'link'"
       @handler-after-click-tag='handlerAfterClickTag'
       @handler-after-input-tag='handlerAfterInputTag'
+      @handler-after-delete-tag='handlerAfterDeleteTag'
     ></tag-editor>
   </span>
 </template>
@@ -32,6 +38,10 @@ export default {
       } else {
         console.log(tag + ' isn\'t added')
       }
+    },
+    // Only one argument
+    handlerAfterDeleteTag(tag){
+      console.log(tag + ' is deleted!')
     }
   }
 }
