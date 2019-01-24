@@ -10,10 +10,9 @@ exports[`TagLink renders correctly (snapshots) 1`] = `
     </a>
   </span>
    
-  <button>
-    
-    x
-  
-  </button>
+  <tag-delete-button-stub
+    eventhub="[object Object]"
+    tagname="test"
+  />
 </span>
 `;

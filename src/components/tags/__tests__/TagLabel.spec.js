@@ -1,22 +1,13 @@
-import { createLocalVue, mount } from '@vue/test-utils'
+import { createLocalVue, shallowMount } from '@vue/test-utils'
 import TagLabel from '../TagLabel'
 
 const localVue = createLocalVue()
 
-const wrapperEventHub = mount(TagLabel, {
-  localVue,
-  propsData: {
-    tagname: 'test'
-  }
-})
-const eventHub = wrapperEventHub.vm
-
 describe('TagLabel', () => {
-  const wrapper = mount(TagLabel, {
+  const wrapper = shallowMount(TagLabel, {
     localVue,
     propsData: {
-      tagname: 'test',
-      eventHub: eventHub
+      tagname: 'test'
     }
   })
 
@@ -30,21 +21,17 @@ describe('TagLabel', () => {
 
   it('renders the correct markup', () => {
     expect(wrapper.html()).toContain("<span><span><label>test</label></span>")
-    expect(wrapper.html()).toContain("x")
+    expect(wrapper.html()).toContain("tag-delete-button-stub")
   })
 
   it('has a delete button', () => {
-    expect(wrapper.contains('button')).toBe(true)
+    expect(wrapper.contains('tag-delete-button-stub')).toBe(true)
   })
 
   it('delete button click should call emitDeleteTag', () => {
-    const button = wrapper.find('button')
-    button.trigger('click')
+    wrapper.vm.emitDeleteTag()
 
     expect(wrapper.emitted('delete-tag')).toBeTruthy()
     expect(wrapper.emitted('delete-tag').length).toBe(1)
-    expect(wrapperEventHub.emitted('delete-tag')).toBeTruthy()
-    expect(wrapperEventHub.emitted('delete-tag').length).toBe(1)
-    expect(wrapperEventHub.emitted('delete-tag')[0]).toEqual(['test'])
   })
 })

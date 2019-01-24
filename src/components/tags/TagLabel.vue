@@ -3,13 +3,17 @@
     <span ref="tagname">
       <label>{{ tagname }}</label>
     </span>
-    <button @click="emitDeleteTag">
-      x
-    </button>
+    <tag-delete-button
+      :tagname="tagname"
+      :eventHub="eventHub"
+      @delete-tag="emitDeleteTag"
+     />
   </span>
 </template>
 
 <script>
+import TagDeleteButton from './TagDeleteButton'
+
 export default {
   name: "TagLabel",
   props:{
@@ -24,10 +28,12 @@ export default {
       }
     }
   },
+  components: {
+    TagDeleteButton: TagDeleteButton
+  },
   methods: {
-    emitDeleteTag() {
+    emitDeleteTag(){
       this.$emit('delete-tag')
-      this.eventHub.$emit('delete-tag', this.$refs.tagname.textContent)
     }
   }
 }
