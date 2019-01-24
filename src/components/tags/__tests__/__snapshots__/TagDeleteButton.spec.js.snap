@@ -3,7 +3,9 @@
 exports[`TagDeleteButton renders correctly (snapshots) 1`] = `
 <span>
   <button>
+    
     x
+  
   </button>
 </span>
 `;
