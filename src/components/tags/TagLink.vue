@@ -10,9 +10,9 @@
     </span>
     <tag-delete-button
       :tagname="tagname"
-      :eventHub="eventHub"
+      :event-hub="eventHub"
       @delete-tag="emitDeleteTag"
-     />
+    />
   </span>
 </template>
 
@@ -21,6 +21,9 @@ import TagDeleteButton from './TagDeleteButton'
 
 export default {
   name: "TagLink",
+  components: {
+    TagDeleteButton: TagDeleteButton
+  },
   props:{
     tagname:{
       type: String,
@@ -32,9 +35,6 @@ export default {
         return null
       }
     }
-  },
-  components: {
-    TagDeleteButton: TagDeleteButton
   },
   methods: {
     emitDeleteTag(){

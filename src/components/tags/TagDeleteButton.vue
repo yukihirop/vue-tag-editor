@@ -1,6 +1,8 @@
 <template>
   <span>
-    <button @click="emitDeleteTag">x</button>
+    <button @click="emitDeleteTag">
+      x
+    </button>
   </span>
 </template>
 
