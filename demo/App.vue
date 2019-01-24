@@ -3,15 +3,16 @@
     <div>
       <h2>None Style</h2>
       <span>
-        <span>
+        <div class="tagEditor">
           <tag-editor
             :tags='tagLabels'
             :type="'label'"
             @handler-after-input-tag='handlerAfterInputTag'
             @handler-after-delete-tag='handlerAfterDeleteTag'
           ></tag-editor>
-          <br/>
-          <!-- handler-after-click-tag is effective only when type === 'link' -->
+        </div>
+        <!-- handler-after-click-tag is effective only when type === 'link' -->
+        <div class="tagEditor">
           <tag-editor
             :tags='tagLinks'
             :type="'link'"
@@ -19,21 +20,22 @@
             @handler-after-input-tag='handlerAfterInputTag'
             @handler-after-delete-tag='handlerAfterDeleteTag'
           ></tag-editor>
-        </span>
+        </div>
       </span>
     </div>
     <div>
       <h2>Bulma</h2>
       <span>
-        <span>
+        <div class="tagEditor">
           <tag-editor-bulma
             :tags='tagLabelsBulma'
             :type="'label'"
             @handler-after-input-tag='handlerAfterInputTag'
             @handler-after-delete-tag='handlerAfterDeleteTag'
           ></tag-editor-bulma>
-          <br/>
-          <!-- handler-after-click-tag is effective only when type === 'link' -->
+        </div>
+        <!-- handler-after-click-tag is effective only when type === 'link' -->
+        <div class="tagEditor">
           <tag-editor-bulma
             :tags='tagLinksBulma'
             :type="'link'"
@@ -41,7 +43,7 @@
             @handler-after-input-tag='handlerAfterInputTag'
             @handler-after-delete-tag='handlerAfterDeleteTag'
           ></tag-editor-bulma>
-        </span>
+        </div>
       </span>
     </div>
   </span>
@@ -54,7 +56,7 @@ export default {
       tagLabels: ['javascript', 'ruby'],
       tagLinks:  ['javascript', 'ruby'],
       tagLabelsBulma: ['javascript', 'ruby'],
-      tagLinksBulma:  ['javascript', 'ruby']
+      tagLinksBulma:  ['javascript', 'ruby'],
     }
   },
   methods: {
@@ -77,3 +79,11 @@ export default {
   }
 }
 </script>
+
+<style scoped="true">
+/deep/ .tagEditor {
+  border: 1px solid gray;
+  margin: 12px;
+  padding: 6px;
+}
+</style>
