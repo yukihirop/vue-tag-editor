@@ -4,6 +4,10 @@
       :tags="tags"
       :type="type"
       :event-hub="eventHub"
+      :tagAreaClass="tagAreaClass"
+      :tagContentClass="tagContentClass"
+      :deleteAreaClass="deleteAreaClass"
+      :deleteContentClass="deleteContentClass"
     />
     <input
       v-model="tag"
@@ -33,6 +37,22 @@ export default {
       type: String,
       default: 'label'
     },
+    tagAreaClass: {
+      type: String,
+      default: ""
+    },
+    tagContentClass: {
+      type: String,
+      default: ""
+    },
+    deleteAreaClass: {
+      type: String,
+      default: ""
+    },
+    deleteContentClass: {
+      type: String,
+      default: ""
+    }
   },
   data(){
     return {

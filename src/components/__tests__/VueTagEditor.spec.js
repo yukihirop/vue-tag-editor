@@ -7,7 +7,11 @@ describe('VueTagEditor', () => {
   const wrapper = shallowMount(VueTagEditor, {
     localVue,
     propsData: {
-      tags: ['javascript', 'ruby']
+      tags: ['javascript', 'ruby'],
+      tagAreaClass: 'tagAreaClass',
+      tagContentClass: 'tagContentClass',
+      deleteAreaClass: 'deleteAreaClass',
+      deleteContentClass: 'deleteContentClass'
     }
   })
 
@@ -24,8 +28,8 @@ describe('VueTagEditor', () => {
   })
 
   it('render the correct markup', () => {
-    expect(wrapper.html()).toContain("<tags-stub tags=\"javascript,ruby\" type=\"label\" eventhub=\"[object Object]\"></tags-stub>")
-    expect(wrapper.html()).toContain("<input placeholder=\"Add tags...\">")
+    expect(wrapper.html()).toContain("tags=\"javascript,ruby\" type=\"label\"")
+    expect(wrapper.html()).toContain("Add tags...")
   })
 
   it('has a input', () => {
@@ -59,5 +63,12 @@ describe('VueTagEditor', () => {
     expect(wrapper.emitted('handler-after-click-tag')).toBeTruthy()
     expect(wrapper.emitted('handler-after-click-tag').length).toEqual(1)
     expect(wrapper.emitted('handler-after-click-tag')[0]).toEqual(['test'])
+  })
+
+  it('has correct class', () => {
+    // expect(wrapper.classes()).toContain("tagAreaClass")
+    // expect(wrapper.classes()).toContain("tagContentClass")
+    // expect(wrapper.classes()).toContain("deleteAreaClass")
+    // expect(wrapper.classes()).toContain("deleteContentClass")
   })
 })
