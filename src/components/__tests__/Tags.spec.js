@@ -7,7 +7,13 @@ describe('Tags', () => {
   const wrapper = shallowMount(Tags,{
     localVue,
     propsData:{
-      tags: ['javascript', 'ruby']
+      tags: ['javascript', 'ruby'],
+      eventHub: new localVue(),
+      tagAreaClass: 'tagAreaClass',
+      tagContentClass: 'tagContentClass',
+      deleteAreaClass: 'deleteAreaClass',
+      deleteContentClass: 'deleteContentClass',
+      tagCustomClass: 'tagCustomClass'
     }
   })
 

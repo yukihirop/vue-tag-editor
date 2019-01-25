@@ -8,10 +8,12 @@ describe('TagLabel', () => {
     localVue,
     propsData: {
       tagname: 'test',
+      eventHub: new localVue(),
       tagAreaClass: 'tagAreaClass',
       tagContentClass: 'tagContentClass',
       deleteAreaClass: 'deleteAreaClass',
-      deleteContentClass: 'deleteContentClass'
+      deleteContentClass: 'deleteContentClass',
+      tagCustomClass: 'tagCustomClass'
     }
   })
 

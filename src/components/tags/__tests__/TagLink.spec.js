@@ -6,7 +6,13 @@ const localVue = createLocalVue()
 const wrapperEventHub = shallowMount(TagLink, {
   localVue,
   propsData: {
-    tagname: 'test'
+    tagname: 'test',
+    eventHub: new localVue(),
+    tagAreaClass: 'tagAreaClass',
+    tagContentClass: 'tagContentClass',
+    deleteAreaClass: 'deleteAreaClass',
+    deleteContentClass: 'deleteContentClass',
+    tagCustomClass: 'tagCustomClass'
   }
 })
 const eventHub = wrapperEventHub.vm
@@ -20,7 +26,8 @@ describe('TagLink', () => {
       tagAreaClass: 'tagAreaClass',
       tagContentClass: 'tagContentClass',
       deleteAreaClass: 'deleteAreaClass',
-      deleteContentClass: 'deleteContentClass'
+      deleteContentClass: 'deleteContentClass',
+      tagCustomClass: 'tagCustomClass'
     }
   })
 
