@@ -12,6 +12,8 @@
 A Vue.js component for creating tag editor.<br>
 Easy to use by providing simple api. And you can customize the style of this component by css.
 
+<img src="https://raw.githubusercontent.com/yukihirop/vue-tag-editor/master/img/vue-tag-editor-set.png" />
+
 ## Installation
 
 Install the npm package.
