@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Bulma</h2>
+    <h2>Bulma Style</h2>
     <ul>
       <li>use (Vue)TagEditorBulma component</li>
       <li>set tag background-color gray when type is link</li>
@@ -14,7 +14,7 @@
         <tag-editor-bulma
           :tags="tagLabels"
           :type="'label'"
-          :tag-custom-class="tagLabelCustomClass"
+          :tag-custom-class="'tagLabelCustom'"
           @handler-after-input-tag="handlerAfterInputTag"
           @handler-after-delete-tag="handlerAfterDeleteTag"
         />
@@ -26,8 +26,8 @@
         <tag-editor-bulma
           :tags="tagLinks"
           :type="'link'"
-          :tag-custom-class="tagLinkCustomClass"
-          :input-content-class="inputContentClass"
+          :tag-custom-class="'tagLinkCustom'"
+          :input-content-class="'inputContent'"
           @handler-after-click-tag="handlerAfterClickTag"
           @handler-after-input-tag="handlerAfterInputTag"
           @handler-after-delete-tag="handlerAfterDeleteTag"
@@ -42,10 +42,7 @@ export default {
   data(){
     return {
       tagLabels: ['javascript', 'ruby'],
-      tagLinks:  ['javascript', 'ruby'],
-      inputContentClass: "inputContent",
-      tagLabelCustomClass: "tagLabelCustom",
-      tagLinkCustomClass: "tagLinkCustom"
+      tagLinks:  ['javascript', 'ruby']
     }
   },
   methods: {

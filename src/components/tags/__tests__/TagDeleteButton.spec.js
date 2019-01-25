@@ -6,7 +6,10 @@ const localVue = createLocalVue()
 const wrapperEventHub = mount(TagDeleteButton, {
   localVue,
   propsData: {
-    tagname: 'test'
+    tagname: 'test',
+    eventHub: new localVue(),
+    deleteAreaClass: 'deleteAreaClass',
+    deleteContentClass: 'deleteContentClass'
   }
 })
 const eventHub = wrapperEventHub.vm

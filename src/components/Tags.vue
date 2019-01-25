@@ -45,37 +45,45 @@ export default {
       type: Array,
       default() {
         return []
-      }
+      },
+      required: false
     },
     type: {
       type: String,
-      default: ''
+      default: "",
+      required: true
     },
     eventHub: {
       type: Object,
       default(){
         return null
-      }
+      },
+      required: true
     },
     tagAreaClass: {
       type: String,
-      default: ""
+      default: "",
+      required: true
     },
     tagContentClass: {
       type: String,
-      default: ""
+      default: "",
+      required: true
     },
     deleteAreaClass: {
       type: String,
-      default: ""
+      default: "",
+      required: true
     },
     deleteContentClass: {
       type: String,
-      default: ""
+      default: "",
+      required: true
     },
     tagCustomClass: {
       type: String,
-      default: ""
+      default: "",
+      required: true
     }
   },
   computed:{

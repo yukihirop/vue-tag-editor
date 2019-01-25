@@ -33,39 +33,48 @@ export default {
       type: Array,
       default(){
         return []
-      }
+      },
+      required: false
     },
     type: {
       type: String,
-      default: 'label'
+      default: 'label',
+      required: false
     },
     tagAreaClass: {
       type: String,
-      default: ""
+      default: "",
+      required: false
     },
     tagContentClass: {
       type: String,
-      default: ""
+      default: "",
+      required: false
     },
     deleteAreaClass: {
       type: String,
-      default: ""
+      default: "",
+      required: false
     },
     deleteContentClass: {
       type: String,
-      default: ""
+      default: "",
+      required: false
     },
     inputContentClass: {
       type: String,
-      default: ''
+      default: "",
+      required: false
     },
     tagCustomClass: {
       type: String,
-      default: ""
+      default: "",
+      required: false
     },
     placeholder: {
       type: String,
-      default: "Add tags..."
+      default: " Add tags...",
+      required: false
     }
   },
   data(){
