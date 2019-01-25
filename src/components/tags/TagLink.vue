@@ -1,5 +1,5 @@
 <template>
-  <span :class="tagAreaClass">
+  <span :class="[tagAreaClass, backgroundColorClass]">
     <span
       ref="tagname"
       @click="emitClickTag"
@@ -50,6 +50,10 @@ export default {
       default: ""
     },
     deleteContentClass: {
+      type: String,
+      default: ""
+    },
+    backgroundColorClass: {
       type: String,
       default: ""
     }

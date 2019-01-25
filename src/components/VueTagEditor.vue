@@ -8,6 +8,7 @@
       :tagContentClass="tagContentClass"
       :deleteAreaClass="deleteAreaClass"
       :deleteContentClass="deleteContentClass"
+      :backgroundColorClass="backgroundColorClass"
     />
     <input
       :class="inputContentClass"
@@ -57,6 +58,10 @@ export default {
     inputContentClass: {
       type: String,
       default: ''
+    },
+    backgroundColorClass: {
+      type: String,
+      default: ""
     }
   },
   data(){

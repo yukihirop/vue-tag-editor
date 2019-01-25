@@ -3,6 +3,7 @@
 exports[`VueTagEditor renders correctly (snapshots) 1`] = `
 <span>
   <tags-stub
+    backgroundcolorclass=""
     deleteareaclass="deleteAreaClass"
     deletecontentclass="deleteContentClass"
     eventhub="[object Object]"

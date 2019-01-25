@@ -8,6 +8,7 @@
       :tagContentClass="tagContentClass"
       :deleteAreaClass="deleteAreaClass"
       :deleteContentClass="deleteContentClass"
+      :backgroundColorClass="backgroundColorClass"
     />
     <input
       :class="inputContentClass"
@@ -38,9 +39,13 @@ export default {
       type: String,
       default: 'label'
     },
+    backgroundColorClass: {
+      type: String,
+      default: ""
+    },
     inputContentClass: {
       type: String,
-      default: ''
+      default: ""
     }
   },
   data(){
@@ -48,10 +53,10 @@ export default {
       tag: '',
       isAddTag: false,
       eventHub: new Vue(),
-      tagAreaClass: "tagAreaClass",
-      tagContentClass: "",
-      deleteAreaClass: "deleteAreaClass",
-      deleteContentClass: "deleteContentClass"
+      tagAreaClass: "tagArea",
+      tagContentClass: "tagContent",
+      deleteAreaClass: "deleteArea",
+      deleteContentClass: "deleteContent"
     }
   },
   mounted(){
@@ -88,18 +93,20 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/sass/bulma.scss";
 
-/deep/ .tagAreaClass {
+/deep/ .tagArea {
   @extend .tag:not(body);
   @extend .is-primary;
   padding: 2px 4px 2px 4px;
   margin: 2px 4px 2px 0px;
 }
-/deep/ .deleteAreaClass {
+/deep/ .tagContent {
+}
+/deep/ .deleteArea {
   @extend .is-primary;
   background-color: transparent;
   border: none;
 }
-/deep/ .deleteContentClass {
+/deep/ .deleteContent {
   @extend .is-primary;
   color: white;
 }

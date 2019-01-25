@@ -1,5 +1,5 @@
 <template>
-  <span :class="tagAreaClass">
+  <span :class="[tagAreaClass, backgroundColorClass]">
     <span
       ref="tagname">
       <label :class="tagContentClass">{{ tagname }}</label>
@@ -46,6 +46,10 @@ export default {
       default: ""
     },
     deleteContentClass: {
+      type: String,
+      default: ""
+    },
+    backgroundColorClass: {
       type: String,
       default: ""
     }

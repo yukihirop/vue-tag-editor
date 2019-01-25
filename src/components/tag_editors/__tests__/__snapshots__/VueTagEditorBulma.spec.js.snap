@@ -3,11 +3,12 @@
 exports[`VueTagEditorBulma renders correctly (snapshots) 1`] = `
 <span>
   <tags-stub
-    deleteareaclass="deleteAreaClass"
-    deletecontentclass="deleteContentClass"
+    backgroundcolorclass=""
+    deleteareaclass="deleteArea"
+    deletecontentclass="deleteContent"
     eventhub="[object Object]"
-    tagareaclass="tagAreaClass"
-    tagcontentclass=""
+    tagareaclass="tagArea"
+    tagcontentclass="tagContent"
     tags="javascript,ruby"
     type="label"
   />
