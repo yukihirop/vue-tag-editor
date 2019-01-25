@@ -1,22 +1,18 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils'
-import VueTagEditor from '../VueTagEditor'
+import VueTagEditorBulma from '../VueTagEditorBulma'
 
 const localVue = createLocalVue()
 
-describe('VueTagEditor', () => {
-  const wrapper = shallowMount(VueTagEditor, {
+describe('VueTagEditorBulma', () => {
+  const wrapper = shallowMount(VueTagEditorBulma, {
     localVue,
     propsData: {
-      tags: ['javascript', 'ruby'],
-      tagAreaClass: 'tagAreaClass',
-      tagContentClass: 'tagContentClass',
-      deleteAreaClass: 'deleteAreaClass',
-      deleteContentClass: 'deleteContentClass'
+      tags: ['javascript', 'ruby']
     }
   })
 
   it('correct name options', () => {
-    expect(wrapper.vm.$options.name).toBe('VueTagEditor')
+    expect(wrapper.vm.$options.name).toBe('VueTagEditorBulma')
   })
 
   it('correct default props', () => {
@@ -63,12 +59,5 @@ describe('VueTagEditor', () => {
     expect(wrapper.emitted('handler-after-click-tag')).toBeTruthy()
     expect(wrapper.emitted('handler-after-click-tag').length).toEqual(1)
     expect(wrapper.emitted('handler-after-click-tag')[0]).toEqual(['test'])
-  })
-
-  it('has correct class', () => {
-    // expect(wrapper.classes()).toContain("tagAreaClass")
-    // expect(wrapper.classes()).toContain("tagContentClass")
-    // expect(wrapper.classes()).toContain("deleteAreaClass")
-    // expect(wrapper.classes()).toContain("deleteContentClass")
   })
 })

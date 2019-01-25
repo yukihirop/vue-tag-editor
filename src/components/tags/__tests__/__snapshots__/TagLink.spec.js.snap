@@ -1,9 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TagLink renders correctly (snapshots) 1`] = `
-<span>
+<span
+  class="tagAreaClass"
+>
   <span>
-    <a>
+    <a
+      class="tagContentClass"
+    >
       <span>
         test
       </span>
@@ -11,6 +15,8 @@ exports[`TagLink renders correctly (snapshots) 1`] = `
   </span>
    
   <tag-delete-button-stub
+    deleteareaclass="deleteAreaClass"
+    deletecontentclass="deleteContentClass"
     eventhub="[object Object]"
     tagname="test"
   />

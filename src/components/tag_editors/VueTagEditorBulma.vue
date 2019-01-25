@@ -21,10 +21,10 @@
 
 <script>
 import Vue from 'vue'
-import Tags from './Tags.vue'
+import Tags from '../Tags.vue'
 
 export default {
-  name: 'VueTagEditor',
+  name: 'VueTagEditorBulma',
   components:{
     Tags: Tags
   },
@@ -39,27 +39,11 @@ export default {
       type: String,
       default: 'label'
     },
-    tagAreaClass: {
-      type: String,
-      default: ""
-    },
-    tagContentClass: {
-      type: String,
-      default: ""
-    },
-    deleteAreaClass: {
-      type: String,
-      default: ""
-    },
-    deleteContentClass: {
+    tagCustomClass: {
       type: String,
       default: ""
     },
     inputContentClass: {
-      type: String,
-      default: ''
-    },
-    tagCustomClass: {
       type: String,
       default: ""
     }
@@ -68,7 +52,11 @@ export default {
     return {
       tag: '',
       isAddTag: false,
-      eventHub: new Vue()
+      eventHub: new Vue(),
+      tagAreaClass: "tagArea",
+      tagContentClass: "tagContent",
+      deleteAreaClass: "deleteArea",
+      deleteContentClass: "deleteContent"
     }
   },
   mounted(){
@@ -101,3 +89,25 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import "../../assets/sass/bulma.scss";
+
+/deep/ .tagArea {
+  @extend .tag:not(body);
+  @extend .is-primary;
+  padding: 2px 4px 2px 4px;
+  margin: 2px 4px 2px 0px;
+}
+/deep/ .tagContent {
+}
+/deep/ .deleteArea {
+  @extend .is-primary;
+  background-color: transparent;
+  border: none;
+}
+/deep/ .deleteContent {
+  @extend .is-primary;
+  color: white;
+}
+</style>>

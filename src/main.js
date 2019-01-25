@@ -1,3 +1,4 @@
 import VueTagEditor from './components/VueTagEditor'
+import VueTagEditorBulma from './components/tag_editors/VueTagEditorBulma'
 
-export default VueTagEditor
+export { VueTagEditor, VueTagEditorBulma }

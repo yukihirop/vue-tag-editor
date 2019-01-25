@@ -1,14 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TagLabel renders correctly (snapshots) 1`] = `
-<span>
+<span
+  class="tagAreaClass"
+>
   <span>
-    <label>
+    <label
+      class="tagContentClass"
+    >
       test
     </label>
   </span>
    
   <tag-delete-button-stub
+    deleteareaclass="deleteAreaClass"
+    deletecontentclass="deleteContentClass"
     tagname="test"
   />
 </span>

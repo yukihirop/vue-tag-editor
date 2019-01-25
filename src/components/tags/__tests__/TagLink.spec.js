@@ -16,7 +16,11 @@ describe('TagLink', () => {
     localVue,
     propsData: {
       tagname: 'test',
-      eventHub: eventHub
+      eventHub: eventHub,
+      tagAreaClass: 'tagAreaClass',
+      tagContentClass: 'tagContentClass',
+      deleteAreaClass: 'deleteAreaClass',
+      deleteContentClass: 'deleteContentClass'
     }
   })
 
@@ -29,7 +33,7 @@ describe('TagLink', () => {
   })
 
   it('renders the correct markup', () => {
-    expect(wrapper.html()).toContain("<span><span><a><span>test</span></a></span>")
+    expect(wrapper.html()).toContain("test")
     expect(wrapper.html()).toContain("tag-delete-button-stub")
   })
 
@@ -51,5 +55,12 @@ describe('TagLink', () => {
     expect(wrapperEventHub.emitted('click-tag')).toBeTruthy()
     expect(wrapperEventHub.emitted('click-tag').length).toBe(1)
     expect(wrapperEventHub.emitted('click-tag')[0]).toEqual(['test'])
+  })
+
+  it('has correct class', () => {
+    expect(wrapper.classes()).toContain("tagAreaClass")
+    // expect(wrapper.classes()).toContain("tagContentClass")
+    // expect(wrapper.classes()).toContain("deleteAreaClass")
+    // expect(wrapper.classes()).toContain("deleteContentClass")
   })
 })
