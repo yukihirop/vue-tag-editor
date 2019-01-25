@@ -3,12 +3,12 @@
 exports[`VueTagEditor renders correctly (snapshots) 1`] = `
 <span>
   <tags-stub
-    backgroundcolorclass=""
     deleteareaclass="deleteAreaClass"
     deletecontentclass="deleteContentClass"
     eventhub="[object Object]"
     tagareaclass="tagAreaClass"
     tagcontentclass="tagContentClass"
+    tagcustomclass=""
     tags="javascript,ruby"
     type="label"
   />
