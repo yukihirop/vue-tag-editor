@@ -8,7 +8,9 @@ exports[`TagLabel renders correctly (snapshots) 1`] = `
     <label
       class="tagContentClass"
     >
+      
       test
+    
     </label>
   </span>
    

@@ -13,7 +13,7 @@
     <input
       v-model="tag"
       :class="inputContentClass"
-      placeholder="Add tags..."
+      :placeholder="placeholder"
       @keyup.enter="inputTagWithEmit"
     >
   </span>
@@ -62,6 +62,10 @@ export default {
     tagCustomClass: {
       type: String,
       default: ""
+    },
+    placeholder: {
+      type: String,
+      default: "Add tags..."
     }
   },
   data(){
