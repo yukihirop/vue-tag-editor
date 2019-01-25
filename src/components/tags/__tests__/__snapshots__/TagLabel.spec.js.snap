@@ -2,7 +2,7 @@
 
 exports[`TagLabel renders correctly (snapshots) 1`] = `
 <span
-  class="tagAreaClass"
+  class="tagAreaClass tagCustomClass"
 >
   <span>
     <label
@@ -17,6 +17,7 @@ exports[`TagLabel renders correctly (snapshots) 1`] = `
   <tag-delete-button-stub
     deleteareaclass="deleteAreaClass"
     deletecontentclass="deleteContentClass"
+    eventhub="[object Object]"
     tagname="test"
   />
 </span>

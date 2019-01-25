@@ -2,7 +2,7 @@
 
 exports[`TagLink renders correctly (snapshots) 1`] = `
 <span
-  class="tagAreaClass"
+  class="tagAreaClass tagCustomClass"
 >
   <span>
     <a
