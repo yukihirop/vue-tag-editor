@@ -1,10 +1,12 @@
 <template>
   <span>
     <button
-      @click="emitDeleteTag"
       :class="deleteAreaClass"
-      >
-      <span :class="deleteContentClass">x</span>
+      @click="emitDeleteTag"
+    >
+      <span :class="deleteContentClass">
+        x
+      </span>
     </button>
   </span>
 </template>

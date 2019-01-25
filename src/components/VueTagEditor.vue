@@ -4,15 +4,15 @@
       :tags="tags"
       :type="type"
       :event-hub="eventHub"
-      :tagAreaClass="tagAreaClass"
-      :tagContentClass="tagContentClass"
-      :deleteAreaClass="deleteAreaClass"
-      :deleteContentClass="deleteContentClass"
-      :tagCustomClass="tagCustomClass"
+      :tag-area-class="tagAreaClass"
+      :tag-content-class="tagContentClass"
+      :delete-area-class="deleteAreaClass"
+      :delete-content-class="deleteContentClass"
+      :tag-custom-class="tagCustomClass"
     />
     <input
-      :class="inputContentClass"
       v-model="tag"
+      :class="inputContentClass"
       placeholder="Add tags..."
       @keyup.enter="inputTagWithEmit"
     >

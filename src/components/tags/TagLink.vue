@@ -11,8 +11,8 @@
     <tag-delete-button
       :tagname="tagname"
       :event-hub="eventHub"
-      :deleteAreaClass="deleteAreaClass"
-      :deleteContentClass="deleteContentClass"
+      :delete-area-class="deleteAreaClass"
+      :delete-content-class="deleteContentClass"
       @delete-tag="emitDeleteTag"
     />
   </span>

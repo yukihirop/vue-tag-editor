@@ -9,23 +9,23 @@
       <!-- do not set css -->
       <div class="tagEditor">
         <tag-editor
-          :tags='tagLabels'
+          :tags="tagLabels"
           :type="'label'"
-          @handler-after-input-tag='handlerAfterInputTag'
-          @handler-after-delete-tag='handlerAfterDeleteTag'
-        ></tag-editor>
+          @handler-after-input-tag="handlerAfterInputTag"
+          @handler-after-delete-tag="handlerAfterDeleteTag"
+        />
       </div>
       <!-- handler-after-click-tag is effective only when type === 'link' -->
       <!-- if set css, set :tagAreaClass, :tagContentClass, :deleteAreaClass, :deleteContentClass, :inputContentClass -->
       <h4>type: link</h4>
       <div class="tagEditor">
         <tag-editor
-          :tags='tagLinks'
+          :tags="tagLinks"
           :type="'link'"
-          @handler-after-click-tag='handlerAfterClickTag'
-          @handler-after-input-tag='handlerAfterInputTag'
-          @handler-after-delete-tag='handlerAfterDeleteTag'
-        ></tag-editor>
+          @handler-after-click-tag="handlerAfterClickTag"
+          @handler-after-input-tag="handlerAfterInputTag"
+          @handler-after-delete-tag="handlerAfterDeleteTag"
+        />
       </div>
     </span>
   </div>

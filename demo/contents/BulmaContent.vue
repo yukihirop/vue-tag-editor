@@ -12,26 +12,26 @@
       <!-- do not set css -->
       <div class="tagEditor">
         <tag-editor-bulma
-          :tags='tagLabels'
+          :tags="tagLabels"
           :type="'label'"
-          :tagCustomClass="tagLabelCustomClass"
-          @handler-after-input-tag='handlerAfterInputTag'
-          @handler-after-delete-tag='handlerAfterDeleteTag'
-        ></tag-editor-bulma>
+          :tag-custom-class="tagLabelCustomClass"
+          @handler-after-input-tag="handlerAfterInputTag"
+          @handler-after-delete-tag="handlerAfterDeleteTag"
+        />
       </div>
       <!-- handler-after-click-tag is effective only when type === 'link' -->
       <!-- if set css, set :inputContentClass -->
       <h4>type: link</h4>
       <div class="tagEditor">
         <tag-editor-bulma
-          :tags='tagLinks'
+          :tags="tagLinks"
           :type="'link'"
-          :tagCustomClass="tagLinkCustomClass"
-          :inputContentClass="inputContentClass"
-          @handler-after-click-tag='handlerAfterClickTag'
-          @handler-after-input-tag='handlerAfterInputTag'
-          @handler-after-delete-tag='handlerAfterDeleteTag'
-        ></tag-editor-bulma>
+          :tag-custom-class="tagLinkCustomClass"
+          :input-content-class="inputContentClass"
+          @handler-after-click-tag="handlerAfterClickTag"
+          @handler-after-input-tag="handlerAfterInputTag"
+          @handler-after-delete-tag="handlerAfterDeleteTag"
+        />
       </div>
     </span>
   </div>
