@@ -6,6 +6,8 @@
       <li>set tag background-color #99cc00</li>
       <li>set input border 2px solid red</li>
       <li>set delete button border none</li>
+      <li>set placeholder 'you can set custom message' when type is link</li>
+      <li>set input width 200px</li>
     </ul>
     <span>
       <h4>type: label</h4>
@@ -37,6 +39,7 @@
           :delete-content-class="deleteContentClass"
           :input-content-class="inputContentClass"
           :tag-custom-class="tagCustomClass"
+          :placeholder="'you can set custom message'"
           @handler-after-click-tag="handlerAfterClickTag"
           @handler-after-input-tag="handlerAfterInputTag"
           @handler-after-delete-tag="handlerAfterDeleteTag"
@@ -108,6 +111,7 @@ export default {
 }
 /deep/ .inputContent {
   border: 2px solid red;
+  width: 200px;
   height: 16px;
 }
 </style>
