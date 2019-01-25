@@ -16,7 +16,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
-      'vue-tag-editor': path.join(__dirname, '..', 'src/main'),
+      'vue-tag-editor-set': path.join(__dirname, '..', 'dist/build'),
       'vue$': path.join(modulesDir, 'vue/dist/vue.common.js')
     },
     modules: [
