@@ -3,25 +3,19 @@
     <h2>Custom Style</h2>
     <ul>
       <li>use (Vue)TagEditor component</li>
-      <li>set tag background-color #99cc00</li>
-      <li>set input border 2px solid red</li>
-      <li>set delete button border none</li>
-      <li>set placeholder 'you can set custom message' when type is link</li>
-      <li>set input width 200px</li>
     </ul>
     <span>
       <h4>type: label</h4>
-      <!-- do not set css -->
       <div class="tagEditor">
         <tag-editor
           :tags="tagLabels"
           :type="'label'"
-          :tag-area-class="tagAreaClass"
-          :tag-content-class="tagContentClass"
-          :delete-area-class="deleteAreaClass"
-          :delete-content-class="deleteContentClass"
-          :input-content-class="inputContentClass"
-          :tag-custom-class="tagCustomClass"
+          :tag-area-class="'tagArea'"
+          :tag-content-class="'tagContent'"
+          :delete-area-class="'deleteArea'"
+          :delete-content-class="'deleteContent'"
+          :input-content-class="'inputContent'"
+          :tag-custom-class="'tagCustom'"
           @handler-after-input-tag="handlerAfterInputTag"
           @handler-after-delete-tag="handlerAfterDeleteTag"
         />
@@ -33,13 +27,13 @@
         <tag-editor
           :tags="tagLinks"
           :type="'link'"
-          :tag-area-class="tagAreaClass"
-          :tag-content-class="tagContentClass"
-          :delete-area-class="deleteAreaClass"
-          :delete-content-class="deleteContentClass"
-          :input-content-class="inputContentClass"
-          :tag-custom-class="tagCustomClass"
-          :placeholder="'you can set custom message'"
+          :tag-area-class="'tagArea'"
+          :tag-content-class="'tagContent'"
+          :delete-area-class="'deleteArea'"
+          :delete-content-class="'deleteContent'"
+          :input-content-class="'inputContent'"
+          :tag-custom-class="'tagCustom'"
+          :placeholder="' you can set custom message'"
           @handler-after-click-tag="handlerAfterClickTag"
           @handler-after-input-tag="handlerAfterInputTag"
           @handler-after-delete-tag="handlerAfterDeleteTag"
@@ -54,13 +48,7 @@ export default {
   data(){
     return {
       tagLabels: ['javascript', 'ruby'],
-      tagLinks:  ['javascript', 'ruby'],
-      tagAreaClass: "tagArea",
-      tagContentClass: "tagContent",
-      deleteAreaClass: "deleteArea",
-      deleteContentClass: "deleteContent",
-      inputContentClass: "inputContent",
-      tagCustomClass: "tagCustom"
+      tagLinks:  ['javascript', 'ruby']
     }
   },
   methods: {
@@ -91,12 +79,19 @@ export default {
   padding: 6px;
 }
 /deep/ .tagArea {
-  margin: 4px;
-  padding: 4px;
+  align-items: center;
+  border-radius: 4px;
+  white-space: nowrap;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  height: 2em;
+  line-height: 1.5;
+  font-size: 0.75rem;
+  display: inline-flex;
   background-color: #99cc00;
 }
 /deep/ .tagContent {
-  color: red;
+  color: white;
 }
 /deep/ .tagCustom {
 }
@@ -107,10 +102,11 @@ export default {
 /deep/ .deleteContent {
   margin: 2px 0;
   padding: 2px 0;
-  color: red;
+  color: white;
 }
 /deep/ .inputContent {
-  border: 2px solid red;
+  padding: 2px 2px;
+  border: 0.5px solid gray;
   width: 200px;
   height: 16px;
 }
