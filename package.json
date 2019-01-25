@@ -1,7 +1,7 @@
 {
   "name": "vue-tag-editor-set",
   "description": "A Vue.js component for creating tag editor.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "yukihirop <te108186@gmail.com>",
   "license": "MIT",
   "main": "dist/build.js",
