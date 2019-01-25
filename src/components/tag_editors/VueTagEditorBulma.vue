@@ -33,28 +33,33 @@ export default {
       type: Array,
       default(){
         return []
-      }
+      },
+      required: false
     },
     type: {
       type: String,
-      default: 'label'
+      default: "label",
+      required: false
     },
     tagCustomClass: {
       type: String,
-      default: ""
+      default: "",
+      required: false
     },
     inputContentClass: {
       type: String,
-      default: ""
+      default: "",
+      required: false
     },
     placeholder: {
       type: String,
-      default: " Add tags..."
+      default: " Add tags...",
+      required: false
     }
   },
   data(){
     return {
-      tag: '',
+      tag: "",
       isAddTag: false,
       eventHub: new Vue()
     }
