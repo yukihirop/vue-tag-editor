@@ -24,7 +24,7 @@
             :tagContentClass="tagContentClass"
             :deleteAreaClass="deleteAreaClass"
             :deleteContentClass="deleteContentClass"
-            :backgroundColorClass="backgroundColorClass"
+            :tagCustomClass="tagCustomClass"
             :inputContentClass="inputContentClass"
             @handler-after-click-tag='handlerAfterClickTag'
             @handler-after-input-tag='handlerAfterInputTag'
@@ -43,7 +43,7 @@
           <tag-editor-bulma
             :tags='tagLabelsBulma'
             :type="'label'"
-            :backgroundColorClass="backgroundColorClass"
+            :tagCustomClass="tagCustomClass"
             @handler-after-input-tag='handlerAfterInputTag'
             @handler-after-delete-tag='handlerAfterDeleteTag'
           ></tag-editor-bulma>
@@ -55,7 +55,7 @@
           <tag-editor-bulma
             :tags='tagLinksBulma'
             :type="'link'"
-            :backgroundColorClass="backgroundColorClass"
+            :tagCustomClass="tagCustomClass"
             :inputContentClass="inputContentClass"
             @handler-after-click-tag='handlerAfterClickTag'
             @handler-after-input-tag='handlerAfterInputTag'
@@ -80,7 +80,7 @@ export default {
       deleteAreaClass: "deleteArea",
       deleteContentClass: "deleteContent",
       inputContentClass: "inputContent",
-      backgroundColorClass: "backgroundColor"
+      tagCustomClass: "tagCustom"
     }
   },
   methods: {
@@ -122,7 +122,7 @@ export default {
 }
 /deep/ .deleteContent {
 }
-/deep/ .backgroundColor {
+/deep/ .tagCustom {
   background-color: #99cc00 !important;
 }
 </style>

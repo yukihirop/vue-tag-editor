@@ -12,7 +12,7 @@
         :tagContentClass="tagContentClass"
         :deleteAreaClass="deleteAreaClass"
         :deleteContentClass="deleteContentClass"
-        :backgroundColorClass="backgroundColorClass"
+        :tagCustomClass="tagCustomClass"
         @delete-tag="deleteTag(index)"
       />
       <tag-link
@@ -23,7 +23,7 @@
         :tagContentClass="tagContentClass"
         :deleteAreaClass="deleteAreaClass"
         :deleteContentClass="deleteContentClass"
-        :backgroundColorClass="backgroundColorClass"
+        :tagCustomClass="tagCustomClass"
         @delete-tag="deleteTag(index)"
       />
     </span>
@@ -73,7 +73,7 @@ export default {
       type: String,
       default: ""
     },
-    backgroundColorClass: {
+    tagCustomClass: {
       type: String,
       default: ""
     }

@@ -8,7 +8,7 @@
       :tagContentClass="tagContentClass"
       :deleteAreaClass="deleteAreaClass"
       :deleteContentClass="deleteContentClass"
-      :backgroundColorClass="backgroundColorClass"
+      :tagCustomClass="tagCustomClass"
     />
     <input
       :class="inputContentClass"
@@ -59,7 +59,7 @@ export default {
       type: String,
       default: ''
     },
-    backgroundColorClass: {
+    tagCustomClass: {
       type: String,
       default: ""
     }
