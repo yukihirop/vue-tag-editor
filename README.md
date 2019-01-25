@@ -1,4 +1,4 @@
-# vue-tag-editor
+# vue-tag-editor-set
 
 [![npm version](https://badge.fury.io/js/vue-tag-editor-set.svg)](https://badge.fury.io/js/vue-tag-editor-set)
 [![Build Status](https://travis-ci.org/yukihirop/vue-tag-editor.svg?branch=master)](https://travis-ci.org/yukihirop/vue-tag-editor)
@@ -19,13 +19,13 @@ Easy to use by providing simple api. And you can customize the style of this com
 Install the npm package.
 
 ```bash
-$ npm install vue-tag-editor --save
+$ npm install vue-tag-editor-set --save
 ```
 
 Register the component.
 
 ```
-import { VueTagEditor, VueTagEditorBulma } from 'vue-tag-editor'  #if you want to use bulma design component
+import { VueTagEditor, VueTagEditorBulma } from 'vue-tag-editor'  #if you want to use bulma design component, include VueTagEditorBulma
 
 Vue.component('tag-editor', VueTagEditor)
 Vue.component('tag-editor-bulma', VueTagEditorBulma)
