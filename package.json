@@ -10,7 +10,8 @@
     "demo": "webpack-dev-server --config ./demo/webpack.config.js --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "test": "jest",
-    "lint": "eslint --ext .js,.vue src"
+    "lint": "eslint --ext .js,.vue src",
+    "coveralls": "jest --coverage && cat ./test/unit/coverage/lcov.info | coveralls"
   },
   "dependencies": {
     "bulma": "^0.7.2",
