@@ -20,10 +20,11 @@
           <tag-editor
             :tags='tagLinks'
             :type="'link'"
-            :tagAreaClass="tagArea"
+            :tagAreaClass="tagAreaClass"
             :tagContentClass="tagContentClass"
             :deleteAreaClass="deleteAreaClass"
             :deleteContentClass="deleteContentClass"
+            :backgroundColorClass="backgroundColorClass"
             :inputContentClass="inputContentClass"
             @handler-after-click-tag='handlerAfterClickTag'
             @handler-after-input-tag='handlerAfterInputTag'
@@ -42,6 +43,7 @@
           <tag-editor-bulma
             :tags='tagLabelsBulma'
             :type="'label'"
+            :backgroundColorClass="backgroundColorClass"
             @handler-after-input-tag='handlerAfterInputTag'
             @handler-after-delete-tag='handlerAfterDeleteTag'
           ></tag-editor-bulma>
@@ -53,6 +55,7 @@
           <tag-editor-bulma
             :tags='tagLinksBulma'
             :type="'link'"
+            :backgroundColorClass="backgroundColorClass"
             :inputContentClass="inputContentClass"
             @handler-after-click-tag='handlerAfterClickTag'
             @handler-after-input-tag='handlerAfterInputTag'
@@ -76,7 +79,8 @@ export default {
       tagContentClass: "tagContent",
       deleteAreaClass: "deleteArea",
       deleteContentClass: "deleteContent",
-      inputContentClass: "inputContent"
+      inputContentClass: "inputContent",
+      backgroundColorClass: "backgroundColor"
     }
   },
   methods: {
@@ -110,6 +114,15 @@ export default {
   border: none;
   height: 16px;
 }
-/deep/ .tagArea, .tagContent, .deleteArea, .deleteContent {
+/deep/ .tagArea{
+}
+/deep/ .tagContent{
+}
+/deep/ .deleteArea{
+}
+/deep/ .deleteContent {
+}
+/deep/ .backgroundColor {
+  background-color: #99cc00 !important;
 }
 </style>
