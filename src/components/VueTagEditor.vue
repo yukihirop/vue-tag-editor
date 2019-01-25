@@ -65,7 +65,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: "Add tags..."
+      default: " Add tags..."
     }
   },
   data(){

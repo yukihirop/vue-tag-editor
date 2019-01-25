@@ -4,10 +4,10 @@
       :tags="tags"
       :type="type"
       :event-hub="eventHub"
-      :tag-area-class="tagAreaClass"
-      :tag-content-class="tagContentClass"
-      :delete-area-class="deleteAreaClass"
-      :delete-content-class="deleteContentClass"
+      :tag-area-class="'tagAreaBulma'"
+      :tag-content-class="'tagContentBulma'"
+      :delete-area-class="'deleteAreaBulma'"
+      :delete-content-class="'deleteContentBulma'"
       :tag-custom-class="tagCustomClass"
     />
     <input
@@ -49,18 +49,14 @@ export default {
     },
     placeholder: {
       type: String,
-      default: "Add tags..."
+      default: " Add tags..."
     }
   },
   data(){
     return {
       tag: '',
       isAddTag: false,
-      eventHub: new Vue(),
-      tagAreaClass: "tagArea",
-      tagContentClass: "tagContent",
-      deleteAreaClass: "deleteArea",
-      deleteContentClass: "deleteContent"
+      eventHub: new Vue()
     }
   },
   mounted(){
@@ -94,23 +90,23 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped="true">
 @import "../../assets/sass/bulma.scss";
 
-/deep/ .tagArea {
+/deep/ .tagAreaBulma {
   @extend .tag:not(body);
   @extend .is-primary;
-  padding: 2px 4px 2px 4px;
+  padding: 2px 4px 2px 10px;
   margin: 2px 4px 2px 0px;
 }
-/deep/ .tagContent {
+/deep/ .tagContentBulma {
 }
-/deep/ .deleteArea {
+/deep/ .deleteAreaBulma {
   @extend .is-primary;
   background-color: transparent;
   border: none;
 }
-/deep/ .deleteContent {
+/deep/ .deleteContentBulma {
   @extend .is-primary;
   color: white;
 }
