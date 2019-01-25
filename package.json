@@ -1,5 +1,5 @@
 {
-  "name": "@yukihirop/vue-tag-editor",
+  "name": "vue-tag-editor-set",
   "description": "A Vue.js component for creating tag editor.",
   "version": "1.0.1",
   "author": "yukihirop <te108186@gmail.com>",
