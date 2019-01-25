@@ -1,5 +1,11 @@
 # vue-tag-editor
 
+[![Build Status](https://travis-ci.org/yukihirop/vue-tag-editor.svg?branch=master)](https://travis-ci.org/yukihirop/vue-tag-editor)
+[![Coverage Status](https://coveralls.io/repos/github/yukihirop/vue-tag-editor/badge.svg?branch=before_release)](https://coveralls.io/github/yukihirop/vue-tag-editor?branch=before_release)
+[![Maintainability](https://api.codeclimate.com/v1/badges/69b323668f245135f9d2/maintainability)](https://codeclimate.com/github/yukihirop/vue-tag-editor/maintainability)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+
+
 A Vue.js component for creating tag editor.<br>
 Easy to use by providing simple api. And you can customize the style of this component by css.
 
