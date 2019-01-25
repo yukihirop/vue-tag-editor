@@ -1,3 +1,6 @@
+## v1.0.4
+* modify README
+
 ## v1.0.3
 2019-01-26
 * Add dist/build.js
