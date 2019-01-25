@@ -1,128 +1,23 @@
 <template>
   <span>
-    <div>
-      <h2>None Style</h2>
-      <span>
-        <h4>type: label</h4>
-        <!-- do not set css -->
-        <div class="tagEditor">
-          <tag-editor
-            :tags='tagLabels'
-            :type="'label'"
-            @handler-after-input-tag='handlerAfterInputTag'
-            @handler-after-delete-tag='handlerAfterDeleteTag'
-          ></tag-editor>
-        </div>
-        <!-- handler-after-click-tag is effective only when type === 'link' -->
-        <!-- if set css, set :tagAreaClass, :tagContentClass, :deleteAreaClass, :deleteContentClass, :inputContentClass -->
-        <h4>type: link</h4>
-        <div class="tagEditor">
-          <tag-editor
-            :tags='tagLinks'
-            :type="'link'"
-            :tagAreaClass="tagAreaClass"
-            :tagContentClass="tagContentClass"
-            :deleteAreaClass="deleteAreaClass"
-            :deleteContentClass="deleteContentClass"
-            :tagCustomClass="tagCustomClass"
-            :inputContentClass="inputContentClass"
-            @handler-after-click-tag='handlerAfterClickTag'
-            @handler-after-input-tag='handlerAfterInputTag'
-            @handler-after-delete-tag='handlerAfterDeleteTag'
-          ></tag-editor>
-        </div>
-      </span>
-    </div>
+    <none-style-content></none-style-content>
     <br/>
-    <div>
-      <h2>Bulma</h2>
-      <span>
-        <h4>type: label</h4>
-        <!-- do not set css -->
-        <div class="tagEditor">
-          <tag-editor-bulma
-            :tags='tagLabelsBulma'
-            :type="'label'"
-            :tagCustomClass="tagCustomClass"
-            @handler-after-input-tag='handlerAfterInputTag'
-            @handler-after-delete-tag='handlerAfterDeleteTag'
-          ></tag-editor-bulma>
-        </div>
-        <!-- handler-after-click-tag is effective only when type === 'link' -->
-        <!-- if set css, set :inputContentClass -->
-        <h4>type: link</h4>
-        <div class="tagEditor">
-          <tag-editor-bulma
-            :tags='tagLinksBulma'
-            :type="'link'"
-            :tagCustomClass="tagCustomClass"
-            :inputContentClass="inputContentClass"
-            @handler-after-click-tag='handlerAfterClickTag'
-            @handler-after-input-tag='handlerAfterInputTag'
-            @handler-after-delete-tag='handlerAfterDeleteTag'
-          ></tag-editor-bulma>
-        </div>
-      </span>
-    </div>
+    <custom-style-content></custom-style-content>
+    <br/>
+    <bulma-content></bulma-content>
   </span>
 </template>
 
 <script>
+import NoneStyleContent from "./contents/NoneStyleContent"
+import CustomStyleContent from "./contents/CustomStyleContent"
+import BulmaContent from "./contents/BulmaContent"
+
 export default {
-  data(){
-    return {
-      tagLabels: ['javascript', 'ruby'],
-      tagLinks:  ['javascript', 'ruby'],
-      tagLabelsBulma: ['javascript', 'ruby'],
-      tagLinksBulma:  ['javascript', 'ruby'],
-      tagAreaClass: "tagArea",
-      tagContentClass: "tagContent",
-      deleteAreaClass: "deleteArea",
-      deleteContentClass: "deleteContent",
-      inputContentClass: "inputContent",
-      tagCustomClass: "tagCustom"
-    }
-  },
-  methods: {
-    // Only one argument
-    handlerAfterClickTag(tag){
-      alert(tag + ' is click!')
-    },
-    // Only two argument
-    handlerAfterInputTag(tag, isAddTag){
-      if (isAddTag === true) {
-        console.log(tag + ' is added!')
-      } else {
-        console.log(tag + ' isn\'t added')
-      }
-    },
-    // Only one argument
-    handlerAfterDeleteTag(tag){
-      console.log(tag + ' is deleted!')
-    }
+  components: {
+    NoneStyleContent: NoneStyleContent,
+    CustomStyleContent: CustomStyleContent,
+    BulmaContent: BulmaContent
   }
 }
 </script>
-
-<style scoped="true">
-/deep/ .tagEditor {
-  border: 1px solid gray;
-  margin: 12px;
-  padding: 6px;
-}
-/deep/ .inputContent {
-  border: none;
-  height: 16px;
-}
-/deep/ .tagArea{
-}
-/deep/ .tagContent{
-}
-/deep/ .deleteArea{
-}
-/deep/ .deleteContent {
-}
-/deep/ .tagCustom {
-  background-color: #99cc00 !important;
-}
-</style>
