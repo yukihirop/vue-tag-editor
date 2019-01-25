@@ -1,7 +1,7 @@
 {
   "name": "@yukihirop/vue-tag-editor",
   "description": "A Vue.js component for creating tag editor.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "yukihirop <te108186@gmail.com>",
   "license": "MIT",
   "main": "dist/build.js",
@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/yukihirop/vue-tag-editor.git"
   },
-  "bugs":{
+  "bugs": {
     "url": "https://github.com/yukihirop/vue-tag-editor/issues"
   },
   "keywords": [
